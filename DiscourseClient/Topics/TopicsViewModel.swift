@@ -32,11 +32,21 @@ class TopicsViewModel {
     }
 
     func viewWasLoaded() {
-        /** TODO:
-         Recuperar el listado de latest topics del dataManager
-         Asignar el resultado a la lista de viewModels (que representan celdas de la interfaz
-         Avisar a la vista de que ya tenemos topics listos para pintar
-         */
+        
+        topicsDataManager.fetchAllTopics { [weak self] result in
+            guard let self = self else { return}
+            
+            switch result {
+            case .success(let topicsResp):
+                self.topicViewModels = topicsResp.topics.map { TopicCellViewModel(topic: $0)
+                }
+                
+                self.viewDelegate?.topicsFetched()
+                
+            case .failure(let error):
+                print(error) // TODO JLI - IMPROVE SHOW ON UI
+            }
+        }
     }
 
     func numberOfSections() -> Int {

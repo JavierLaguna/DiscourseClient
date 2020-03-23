@@ -37,9 +37,7 @@ extension APIRequest {
     }
     
     func requestWithBaseUrl() -> URLRequest {
-        // Primero, definimos cual va a ser la url con el recurso a llamar
         let url = baseURL.appendingPathComponent(path)
-        // Aquí tendriamos: https://www.google.com/search
         
         // Segundo, si el objeto que lo implementa añade parametros, construimos la url con parametros
         guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
@@ -53,12 +51,8 @@ extension APIRequest {
         guard let finalUrl = components.url else {
             fatalError("Unable to retrieve final URL")
         }
-        // Aquí tendriamos: https://www.google.com/search?q=hola&oq=hola&aqs=chrome..69i57j69i60l4j69i61.378j0j7&sourceid=chrome&ie=UTF-8
         
-        // Ahora a partir de una url, podemos construir nuestro objeto URLRequest, que lo necesitamos para crear last de URLSession
         var request = URLRequest(url: finalUrl)
-        
-        // Aquí definimos el verbo a usar: GET, POST...
         request.httpMethod = method.rawValue
         
         //Aquí añadimos el body si el objeto que lo implementa añade body
@@ -66,16 +60,16 @@ extension APIRequest {
             let jsonData = try? JSONSerialization.data(withJSONObject: body)
             request.httpBody = jsonData
         }
-
-        fatalError("En Api-Key y Api-Username teneis que poner vuestos datos")
+        
         // Aquí vamos definiendo las cabeceras de nuestra petición
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
         // API-KEY: 699667f923e65fac39b632b0d9b2db0d9ee40f9da15480ad5a4bcb3c1b095b7a. Necesario para que el servidor nos reconozca
         request.addValue("699667f923e65fac39b632b0d9b2db0d9ee40f9da15480ad5a4bcb3c1b095b7a", forHTTPHeaderField: "Api-Key")
+        
         // API-Username, necesario para que el servidor nos reconozca
-        // Para la practica, cambiar el usuario nach por el que usasteis para registraros
-        request.addValue("che1404", forHTTPHeaderField: "Api-Username")
-
+        request.addValue("javierLaguna", forHTTPHeaderField: "Api-Username")
+        
         return request
     }
 }
