@@ -22,6 +22,7 @@ protocol TopicDetailViewDelegate: class {
 class TopicDetailViewModel {
     var labelTopicIDText: String?
     var labelTopicNameText: String?
+    var postsNumber: String?
 
     weak var viewDelegate: TopicDetailViewDelegate?
     weak var coordinatorDelegate: TopicDetailCoordinatorDelegate?
@@ -42,6 +43,7 @@ class TopicDetailViewModel {
                 let topic = topicResp.topic
                 self.labelTopicIDText = "\(topic.id)"
                 self.labelTopicNameText = topic.title
+                self.postsNumber = "\(topic.postsCount)"
                 
                 self.viewDelegate?.topicDetailFetched()
                 

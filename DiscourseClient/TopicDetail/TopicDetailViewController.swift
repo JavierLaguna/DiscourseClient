@@ -22,6 +22,12 @@ class TopicDetailViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    lazy var postsNumberValueLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
 
     lazy var topicIDStackView: UIStackView = {
         let labelTopicIDTitle = UILabel()
@@ -46,6 +52,18 @@ class TopicDetailViewController: UIViewController {
         topicNameStackView.axis = .horizontal
 
         return topicNameStackView
+    }()
+    
+    lazy var postsNumberStackView: UIStackView = {
+        let postsNumberLabel = UILabel()
+        postsNumberLabel.text = NSLocalizedString("Number of post: ", comment: "")
+        postsNumberLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        let postsNumberStackView = UIStackView(arrangedSubviews: [postsNumberLabel, postsNumberValueLabel])
+        postsNumberStackView.translatesAutoresizingMaskIntoConstraints = false
+        postsNumberStackView.axis = .horizontal
+
+        return postsNumberStackView
     }()
 
     let viewModel: TopicDetailViewModel
@@ -74,6 +92,12 @@ class TopicDetailViewController: UIViewController {
             topicNameStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
             topicNameStackView.topAnchor.constraint(equalTo: topicIDStackView.bottomAnchor, constant: 8)
         ])
+        
+        view.addSubview(postsNumberStackView)
+        NSLayoutConstraint.activate([
+            postsNumberStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
+            postsNumberStackView.topAnchor.constraint(equalTo: topicNameStackView.bottomAnchor, constant: 8)
+        ])
 
         let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .plain, target: self, action: #selector(backButtonTapped))
         leftBarButtonItem.tintColor = .black
@@ -97,6 +121,7 @@ class TopicDetailViewController: UIViewController {
     fileprivate func updateUI() {
         labelTopicID.text = viewModel.labelTopicIDText
         labelTopicTitle.text = viewModel.labelTopicNameText
+        postsNumberValueLabel.text = viewModel.postsNumber
     }
 }
 
