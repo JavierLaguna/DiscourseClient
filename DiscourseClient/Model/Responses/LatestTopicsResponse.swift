@@ -43,7 +43,7 @@ struct Topic: Codable {
     let likeCount: Int
     let hasSummary: Bool
     let archetype: String
-    let lastPosterUsername: String
+    let lastPosterUsername: String?
     let categoryId: Int
     let pinnedGlobally: Bool
     

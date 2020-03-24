@@ -15,6 +15,6 @@ class TopicCellViewModel {
     
     init(topic: Topic) {
         self.topic = topic
-        self.textLabelText = topic.fancyTitle
+        self.textLabelText = topic.title
     }
 }

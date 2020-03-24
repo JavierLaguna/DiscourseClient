@@ -44,7 +44,8 @@ class TopicsViewModel {
                 self.viewDelegate?.topicsFetched()
                 
             case .failure(let error):
-                print(error) // TODO JLI - IMPROVE SHOW ON UI
+                print(error) // TODO JLI
+                self.viewDelegate?.errorFetchingTopics()
             }
         }
     }

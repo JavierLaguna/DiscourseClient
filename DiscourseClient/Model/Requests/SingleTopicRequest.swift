@@ -8,7 +8,6 @@
 
 import Foundation
 
-// TODO: Implementar las propiedades de esta request
 struct SingleTopicRequest: APIRequest {
     
     typealias Response = SingleTopicResponse
@@ -20,22 +19,22 @@ struct SingleTopicRequest: APIRequest {
     }
     
     var method: Method {
-        fatalError("Need to implement this")
+        return .GET
     }
     
     var path: String {
-        fatalError("Need to implement this")
+        return "/t/\(id).json"
     }
     
     var parameters: [String : String] {
-        fatalError("Need to implement this")
+        return [:]
     }
     
     var body: [String : Any] {
-        fatalError("Need to implement this")
+        return [:]
     }
     
     var headers: [String : String] {
-        fatalError("Need to implement this")
+        return [:]
     }
 }

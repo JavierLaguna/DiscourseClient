@@ -34,7 +34,23 @@ class TopicDetailViewModel {
     }
 
     func viewDidLoad() {
-        
+        topicDetailDataManager.fetchTopic(id: topicID) { [weak self] result in
+            guard let self = self else { return}
+            
+            switch result {
+            case .success(let topicResp):
+                let topic = topicResp.topic
+                self.labelTopicIDText = "\(topic.id)"
+                self.labelTopicNameText = topic.title
+                
+                self.viewDelegate?.topicDetailFetched()
+                
+            case .failure(let error):
+                print(error) // TODO JLI - IMPROVE SHOW ON UI
+                self.viewDelegate?.errorFetchingTopicDetail()
+            }
+            
+        }
     }
 
     func backButtonTapped() {
