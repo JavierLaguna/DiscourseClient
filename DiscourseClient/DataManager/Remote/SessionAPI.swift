@@ -13,6 +13,11 @@ enum SessionAPIError: Error {
     case emptyData
 }
 
+struct DiscourseAPIError: Codable {
+    let action: String?
+    let errors: [String]?
+}
+
 /// Clase de utilidad para llamar al API. El método Send recibe una Request que implementa APIRequest y tiene un tipo Response asociado
 final class SessionAPI {
     lazy var session: URLSession = {
@@ -28,9 +33,17 @@ final class SessionAPI {
         let task = session.dataTask(with: request) { data, response, error in
             do {
                 if let data = data {
-                    let model = try JSONDecoder().decode(T.Response.self, from: data)
-                    DispatchQueue.main.async {
-                        completion(.success(model))
+                    if let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode >= 400 {
+                        let errorModel = try JSONDecoder().decode(DiscourseAPIError.self, from: data)
+                        DispatchQueue.main.async {
+                            let errorString = errorModel.errors?.joined(separator: ", ") ?? "Unknown error"
+                            completion(.failure(NSError(domain: "request error", code: 0, userInfo: [NSLocalizedDescriptionKey: errorString])))
+                        }
+                    } else {
+                        let model = try JSONDecoder().decode(T.Response.self, from: data)
+                        DispatchQueue.main.async {
+                            completion(.success(model))
+                        }
                     }
                 } else {
                     DispatchQueue.main.async {
