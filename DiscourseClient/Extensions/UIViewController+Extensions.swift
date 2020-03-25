@@ -22,4 +22,16 @@ extension UIViewController {
         alertController.addAction(UIAlertAction(title: alertActionTitle, style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
+    
+    func showDeleteAlert(title: String, onAccept: @escaping () -> Void) {
+        let yesAction = UIAlertAction(title: "Borrar", style: .destructive, handler: { _ in
+            onAccept()
+        })
+        let noAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        let alert = UIAlertController(title: title, message: "La acción no podrá deshacerse", preferredStyle: .alert)
+        alert.addAction(noAction)
+        alert.addAction(yesAction)
+        
+        self.present(alert, animated: true)
+    }
 }
