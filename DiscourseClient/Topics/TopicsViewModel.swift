@@ -44,7 +44,7 @@ class TopicsViewModel {
                 self.viewDelegate?.topicsFetched()
                 
             case .failure(let error):
-                print(error) // TODO JLI
+                Log.error(error)
                 self.viewDelegate?.errorFetchingTopics()
             }
         }

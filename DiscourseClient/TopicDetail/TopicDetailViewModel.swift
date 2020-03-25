@@ -53,7 +53,7 @@ class TopicDetailViewModel {
                 self.viewDelegate?.topicDetailFetched()
                 
             case .failure(let error):
-                print(error) // TODO JLI - IMPROVE SHOW ON UI
+                Log.error(error)
                 self.viewDelegate?.errorFetchingTopicDetail()
             }
             
@@ -68,7 +68,7 @@ class TopicDetailViewModel {
             case .success:
                 break // TODO
             case .failure(let error):
-                print(error) // TODO JLI - IMPROVE SHOW ON UI
+                Log.error(error)
                 self.viewDelegate?.errorDeletingTopicDetail()
             }
         }
