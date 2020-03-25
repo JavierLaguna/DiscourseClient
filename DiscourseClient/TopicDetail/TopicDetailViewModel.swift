@@ -17,12 +17,14 @@ protocol TopicDetailCoordinatorDelegate: class {
 protocol TopicDetailViewDelegate: class {
     func topicDetailFetched()
     func errorFetchingTopicDetail()
+    func errorDeletingTopicDetail()
 }
 
 class TopicDetailViewModel {
     var labelTopicIDText: String?
     var labelTopicNameText: String?
     var postsNumber: String?
+    var canDeleteTopic = false
 
     weak var viewDelegate: TopicDetailViewDelegate?
     weak var coordinatorDelegate: TopicDetailCoordinatorDelegate?
@@ -45,6 +47,9 @@ class TopicDetailViewModel {
                 self.labelTopicNameText = topic.title
                 self.postsNumber = "\(topic.postsCount)"
                 
+                let details = topicResp.details
+                self.canDeleteTopic = details.canDelete ?? false
+                
                 self.viewDelegate?.topicDetailFetched()
                 
             case .failure(let error):
@@ -52,6 +57,20 @@ class TopicDetailViewModel {
                 self.viewDelegate?.errorFetchingTopicDetail()
             }
             
+        }
+    }
+    
+    func deleteTopic() {
+        topicDetailDataManager.deleteTopic(id: topicID) { [weak self] result in
+            guard let self = self else { return}
+            
+            switch result {
+            case .success:
+                break // TODO
+            case .failure(let error):
+                print(error) // TODO JLI - IMPROVE SHOW ON UI
+                self.viewDelegate?.errorDeletingTopicDetail()
+            }
         }
     }
 

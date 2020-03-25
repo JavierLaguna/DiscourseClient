@@ -4,9 +4,13 @@ import Foundation
 
 struct SingleTopicResponse: Codable {
     let topic: Topic
+    let details: TopicDetails
     
     init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        topic = try container.decode(Topic.self)
+        let rootObject = try decoder.singleValueContainer()
+        topic = try rootObject.decode(Topic.self)
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        details = try container.decode(TopicDetails.self, forKey: .details)
     }
 }

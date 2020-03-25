@@ -15,7 +15,7 @@ import Foundation
 class DiscourseClientDataManager {
     let localDataManager: DiscourseClientLocalDataManager
     let remoteDataManager: DiscourseClientRemoteDataManager
-
+    
     init(localDataManager: DiscourseClientLocalDataManager, remoteDataManager: DiscourseClientRemoteDataManager) {
         self.localDataManager = localDataManager
         self.remoteDataManager = remoteDataManager
@@ -31,6 +31,10 @@ extension DiscourseClientDataManager: TopicsDataManager {
 extension DiscourseClientDataManager: TopicDetailDataManager {
     func fetchTopic(id: Int, completion: @escaping (Result<SingleTopicResponse, Error>) -> ()) {
         remoteDataManager.fetchTopic(id: id, completion: completion)
+    }
+    
+    func deleteTopic(id: Int, completion: @escaping (Result<DeleteTopicResponse, Error>) -> ()) {
+        remoteDataManager.deleteTopic(id: id, completion: completion)
     }
 }
 

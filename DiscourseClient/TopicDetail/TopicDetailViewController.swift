@@ -122,7 +122,29 @@ class TopicDetailViewController: UIViewController {
         labelTopicID.text = viewModel.labelTopicIDText
         labelTopicTitle.text = viewModel.labelTopicNameText
         postsNumberValueLabel.text = viewModel.postsNumber
+        
+        if viewModel.canDeleteTopic {
+            showDeleteOption()
+        }
     }
+    
+    private func showDeleteOption() {
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteTopic))
+        barButtonItem.tintColor = .red
+        navigationItem.rightBarButtonItem = barButtonItem
+    }
+    
+    @objc private func deleteTopic() {
+        showDeleteAlert(title: "Delete Topic") { [weak self] in
+            self?.viewModel.deleteTopic()
+        }
+    }
+    
+    fileprivate func showErrorDeletingTopicDetailAlert() {
+        let alertMessage: String = NSLocalizedString("Error deleting topic\nPlease try again later", comment: "")
+        showAlert(alertMessage)
+    }
+    
 }
 
 extension TopicDetailViewController: TopicDetailViewDelegate {
@@ -132,5 +154,9 @@ extension TopicDetailViewController: TopicDetailViewDelegate {
 
     func errorFetchingTopicDetail() {
         showErrorFetchingTopicDetailAlert()
+    }
+    
+    func errorDeletingTopicDetail() {
+        showErrorDeletingTopicDetailAlert()
     }
 }
