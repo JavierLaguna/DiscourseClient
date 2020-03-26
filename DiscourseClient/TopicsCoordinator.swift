@@ -75,4 +75,9 @@ extension TopicsCoordinator: TopicDetailCoordinatorDelegate {
     func topicDetailBackButtonTapped() {
         presenter.popViewController(animated: true)
     }
+    
+    func topicDeleted() {
+        presenter.popViewController(animated: true)
+        topicsViewModel?.refreshTopics()
+    }
 }

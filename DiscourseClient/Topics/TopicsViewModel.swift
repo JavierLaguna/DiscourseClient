@@ -32,7 +32,14 @@ class TopicsViewModel {
     }
 
     func viewWasLoaded() {
-        
+        fetchAllTopics()
+    }
+    
+    func refreshTopics() {
+        fetchAllTopics()
+    }
+    
+    private func fetchAllTopics() {
         topicsDataManager.fetchAllTopics { [weak self] result in
             guard let self = self else { return}
             

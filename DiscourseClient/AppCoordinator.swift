@@ -45,7 +45,7 @@ class AppCoordinator: Coordinator {
         topicsCoordinator.start()
 
         let categoriesNavigationController = UINavigationController()
-        let categoriesCoordinator = CategoriesCoordinator(presenter: categoriesNavigationController)
+        let categoriesCoordinator = CategoriesCoordinator(presenter: categoriesNavigationController, categoriesDataManager: dataManager)
         addChildCoordinator(categoriesCoordinator)
         categoriesCoordinator.start()
 
