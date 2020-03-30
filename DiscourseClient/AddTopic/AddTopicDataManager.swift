@@ -10,5 +10,5 @@ import Foundation
 
 /// DataManager con las operaciones necesarias para este módulo
 protocol AddTopicDataManager: class {
-    func addTopic(title: String, raw: String, createdAt: String, completion: @escaping (Result<AddNewTopicResponse, Error>) -> ())
+    func addTopic(title: String, raw: String, createdAt: String, completion: @escaping (Result<AddNewTopicResponse?, Error>) -> ())
 }

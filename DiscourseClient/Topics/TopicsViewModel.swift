@@ -26,11 +26,11 @@ class TopicsViewModel {
     weak var viewDelegate: TopicsViewDelegate?
     let topicsDataManager: TopicsDataManager
     var topicViewModels: [TopicCellViewModel] = []
-
+    
     init(topicsDataManager: TopicsDataManager) {
         self.topicsDataManager = topicsDataManager
     }
-
+    
     func viewWasLoaded() {
         fetchAllTopics()
     }
@@ -45,8 +45,8 @@ class TopicsViewModel {
             
             switch result {
             case .success(let topicsResp):
-                self.topicViewModels = topicsResp.topics.map { TopicCellViewModel(topic: $0)
-                }
+                guard let topics = topicsResp?.topics else { return }
+                self.topicViewModels = topics.map { TopicCellViewModel(topic: $0) }
                 
                 self.viewDelegate?.topicsFetched()
                 
@@ -56,29 +56,29 @@ class TopicsViewModel {
             }
         }
     }
-
+    
     func numberOfSections() -> Int {
         return 1
     }
-
+    
     func numberOfRows(in section: Int) -> Int {
         return topicViewModels.count
     }
-
+    
     func viewModel(at indexPath: IndexPath) -> TopicCellViewModel? {
         guard indexPath.row < topicViewModels.count else { return nil }
         return topicViewModels[indexPath.row]
     }
-
+    
     func didSelectRow(at indexPath: IndexPath) {
         guard indexPath.row < topicViewModels.count else { return }
         coordinatorDelegate?.didSelect(topic: topicViewModels[indexPath.row].topic)
     }
-
+    
     func plusButtonTapped() {
         coordinatorDelegate?.topicsPlusButtonTapped()
     }
-
+    
     func newTopicWasCreated() {
         // TODO: Seguramente debamos recuperar de nuevo los topics del datamanager, y pintarlos de nuevo
     }

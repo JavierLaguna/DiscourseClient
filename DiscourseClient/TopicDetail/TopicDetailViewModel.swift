@@ -43,12 +43,12 @@ class TopicDetailViewModel {
             
             switch result {
             case .success(let topicResp):
-                let topic = topicResp.topic
+                guard let topic = topicResp?.topic, let details = topicResp?.details else { return }
+                
                 self.labelTopicIDText = "\(topic.id)"
                 self.labelTopicNameText = topic.title
                 self.postsNumber = "\(topic.postsCount)"
                 
-                let details = topicResp.details
                 self.canDeleteTopic = details.canDelete ?? false
                 
                 self.viewDelegate?.topicDetailFetched()
@@ -67,7 +67,6 @@ class TopicDetailViewModel {
             
             switch result {
             case .success:
-                // TODO JLI FIX THIS EMPTY RETURN
                 self.coordinatorDelegate?.topicDeleted()
             case .failure(let error):
                 Log.error(error)

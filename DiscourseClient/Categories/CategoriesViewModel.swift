@@ -40,8 +40,8 @@ class CategoriesViewModel {
             
             switch result {
             case .success(let categoriesResp):
-                self.categoriesViewModels = categoriesResp.categories.map { CategoryCellViewModel(category: $0)
-                }
+                guard let categories = categoriesResp?.categories else { return }
+                self.categoriesViewModels = categories.map { CategoryCellViewModel(category: $0) }
                 
                 self.viewDelegate?.categoriesFetched()
                 
