@@ -23,6 +23,14 @@ class AddTopicViewModel {
     weak var viewDelegate: AddTopicViewDelegate?
     weak var coordinatorDelegate: AddTopicCoordinatorDelegate?
     let dataManager: AddTopicDataManager
+    
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.locale = Locale.current
+
+        return formatter
+    }
 
     init(dataManager: AddTopicDataManager) {
         self.dataManager = dataManager
@@ -33,10 +41,19 @@ class AddTopicViewModel {
     }
 
     func submitButtonTapped(title: String) {
-        /** TODO:
-         Realizar la llamada addTopic sobre el dataManager.
-         Si el resultado es success, avisar al coordinator
-         Si la llamada falla, avisar al viewDelegate
-         */
+        let createdAt = dateFormatter.string(from: Date())
+        
+        dataManager.addTopic(title: title, raw: "JL prueba de creación de tooooooopic", createdAt: createdAt) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success:
+                self.coordinatorDelegate?.topicSuccessfullyAdded()
+                
+            case .failure(let error):
+                Log.error(error)
+                self.viewDelegate?.errorAddingTopic()
+            }
+        }
     }
 }

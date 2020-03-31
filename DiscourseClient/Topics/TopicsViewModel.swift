@@ -41,7 +41,7 @@ class TopicsViewModel {
     
     private func fetchAllTopics() {
         topicsDataManager.fetchAllTopics { [weak self] result in
-            guard let self = self else { return}
+            guard let self = self else { return }
             
             switch result {
             case .success(let topicsResp):
@@ -80,6 +80,6 @@ class TopicsViewModel {
     }
     
     func newTopicWasCreated() {
-        // TODO: Seguramente debamos recuperar de nuevo los topics del datamanager, y pintarlos de nuevo
+        refreshTopics()
     }
 }
