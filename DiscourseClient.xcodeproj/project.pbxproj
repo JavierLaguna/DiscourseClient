@@ -19,6 +19,19 @@
 		496A9884242D3298007BE243 /* CategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A9883242D3298007BE243 /* CategoryCellViewModel.swift */; };
 		496A9887242D3872007BE243 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A9885242D3872007BE243 /* CategoryCell.swift */; };
 		496A9888242D3872007BE243 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496A9886242D3872007BE243 /* CategoryCell.xib */; };
+		496E7FEF24350E6C00019B20 /* UsersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E7FEE24350E6C00019B20 /* UsersCoordinator.swift */; };
+		496E7FF22435173F00019B20 /* UsersDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E7FF12435173F00019B20 /* UsersDataManager.swift */; };
+		496E7FF42435177B00019B20 /* UsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E7FF32435177B00019B20 /* UsersResponse.swift */; };
+		496E7FF72435185400019B20 /* UserDetailDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E7FF62435185300019B20 /* UserDetailDataManager.swift */; };
+		496E7FF92435189000019B20 /* UserDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E7FF82435189000019B20 /* UserDetailResponse.swift */; };
+		496E7FFC2435195400019B20 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E7FFB2435195400019B20 /* UsersViewModel.swift */; };
+		496E7FFE243519F200019B20 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E7FFD243519F200019B20 /* User.swift */; };
+		496E800024351A8800019B20 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E7FFF24351A8800019B20 /* UserCellViewModel.swift */; };
+		496E800224351E8000019B20 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E800124351E8000019B20 /* UsersViewController.swift */; };
+		496E80052435201C00019B20 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E80032435201C00019B20 /* UserCell.swift */; };
+		496E80062435201C00019B20 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496E80042435201C00019B20 /* UserCell.xib */; };
+		496E80082435207B00019B20 /* UsersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E80072435207B00019B20 /* UsersRequest.swift */; };
+		496E800A243520A500019B20 /* UserDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E8009243520A500019B20 /* UserDetailRequest.swift */; };
 		62015CB723EF04C200673EBB /* TopicCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62015CB623EF04C200673EBB /* TopicCellViewModel.swift */; };
 		62015CBA23EF084C00673EBB /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62015CB823EF084C00673EBB /* TopicCell.swift */; };
 		62015CBB23EF084C00673EBB /* TopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62015CB923EF084C00673EBB /* TopicCell.xib */; };
@@ -71,6 +84,19 @@
 		496A9883242D3298007BE243 /* CategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellViewModel.swift; sourceTree = "<group>"; };
 		496A9885242D3872007BE243 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		496A9886242D3872007BE243 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		496E7FEE24350E6C00019B20 /* UsersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCoordinator.swift; sourceTree = "<group>"; };
+		496E7FF12435173F00019B20 /* UsersDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDataManager.swift; sourceTree = "<group>"; };
+		496E7FF32435177B00019B20 /* UsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponse.swift; sourceTree = "<group>"; };
+		496E7FF62435185300019B20 /* UserDetailDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailDataManager.swift; sourceTree = "<group>"; };
+		496E7FF82435189000019B20 /* UserDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailResponse.swift; sourceTree = "<group>"; };
+		496E7FFB2435195400019B20 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		496E7FFD243519F200019B20 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		496E7FFF24351A8800019B20 /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
+		496E800124351E8000019B20 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		496E80032435201C00019B20 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		496E80042435201C00019B20 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		496E80072435207B00019B20 /* UsersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRequest.swift; sourceTree = "<group>"; };
+		496E8009243520A500019B20 /* UserDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailRequest.swift; sourceTree = "<group>"; };
 		62015CB623EF04C200673EBB /* TopicCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCellViewModel.swift; sourceTree = "<group>"; };
 		62015CB823EF084C00673EBB /* TopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 		62015CB923EF084C00673EBB /* TopicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicCell.xib; sourceTree = "<group>"; };
@@ -129,6 +155,27 @@
 				496A9879242BF15E007BE243 /* Log.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		496E7FF0243515A700019B20 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				496E7FF12435173F00019B20 /* UsersDataManager.swift */,
+				496E7FFB2435195400019B20 /* UsersViewModel.swift */,
+				496E7FFF24351A8800019B20 /* UserCellViewModel.swift */,
+				496E800124351E8000019B20 /* UsersViewController.swift */,
+				496E80032435201C00019B20 /* UserCell.swift */,
+				496E80042435201C00019B20 /* UserCell.xib */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		496E7FF52435182F00019B20 /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				496E7FF62435185300019B20 /* UserDetailDataManager.swift */,
+			);
+			path = UserDetail;
 			sourceTree = "<group>";
 		};
 		62015CBE23EF0F6C00673EBB /* TopicDetail */ = {
@@ -191,24 +238,27 @@
 		627DC5A723E5F580006D8615 /* DiscourseClient */ = {
 			isa = PBXGroup;
 			children = (
-				496A9878242BF151007BE243 /* Utils */,
-				62015CC923EF19E600673EBB /* Extensions */,
-				627DC5C923E603A9006D8615 /* Model */,
-				627DC5C623E6036F006D8615 /* DataManager */,
-				627DC5C123E5FED6006D8615 /* Topics */,
-				62015CBE23EF0F6C00673EBB /* TopicDetail */,
 				62015CCC23EF1F4200673EBB /* AddTopic */,
 				62015CD923EF300200673EBB /* Categories */,
 				627DC5BC23E5F775006D8615 /* Coordinator */,
-				627DC5A823E5F580006D8615 /* AppDelegate.swift */,
-				627DC5AA23E5F580006D8615 /* SceneDelegate.swift */,
+				627DC5C623E6036F006D8615 /* DataManager */,
+				62015CC923EF19E600673EBB /* Extensions */,
+				627DC5C923E603A9006D8615 /* Model */,
+				62015CBE23EF0F6C00673EBB /* TopicDetail */,
+				627DC5C123E5FED6006D8615 /* Topics */,
+				496E7FF0243515A700019B20 /* Users */,
+				496E7FF52435182F00019B20 /* UserDetail */,
+				496A9878242BF151007BE243 /* Utils */,
 				627DC5B123E5F581006D8615 /* Assets.xcassets */,
-				627DC5B323E5F581006D8615 /* LaunchScreen.storyboard */,
 				627DC5B623E5F581006D8615 /* Info.plist */,
-				627DC5BF23E5F7B3006D8615 /* AppCoordinator.swift */,
-				62015CBC23EF0C6700673EBB /* TopicsCoordinator.swift */,
-				62015CDE23EF30E600673EBB /* CategoriesCoordinator.swift */,
+				627DC5B323E5F581006D8615 /* LaunchScreen.storyboard */,
+				627DC5A823E5F580006D8615 /* AppDelegate.swift */,
 				62015CD723EF26C900673EBB /* AddTopicCoordinator.swift */,
+				627DC5BF23E5F7B3006D8615 /* AppCoordinator.swift */,
+				62015CDE23EF30E600673EBB /* CategoriesCoordinator.swift */,
+				627DC5AA23E5F580006D8615 /* SceneDelegate.swift */,
+				62015CBC23EF0C6700673EBB /* TopicsCoordinator.swift */,
+				496E7FEE24350E6C00019B20 /* UsersCoordinator.swift */,
 			);
 			path = DiscourseClient;
 			sourceTree = "<group>";
@@ -252,6 +302,7 @@
 				496A9870242AA0C0007BE243 /* Topic.swift */,
 				496A9872242AA0F0007BE243 /* TopicDetails.swift */,
 				496A987F242D2E82007BE243 /* Category.swift */,
+				496E7FFD243519F200019B20 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,11 +330,13 @@
 		627DC5DA23E607D6006D8615 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				496A9881242D31C9007BE243 /* CategoriesRequest.swift */,
 				62015CD123EF205100673EBB /* CreateTopicRequest.swift */,
 				496A9874242BEA67007BE243 /* DeleteTopicRequest.swift */,
 				62A697A223E89BD600CCEA3E /* LatestTopicsRequest.swift */,
 				62015CC523EF161E00673EBB /* SingleTopicRequest.swift */,
-				496A9881242D31C9007BE243 /* CategoriesRequest.swift */,
+				496E8009243520A500019B20 /* UserDetailRequest.swift */,
+				496E80072435207B00019B20 /* UsersRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -292,10 +345,12 @@
 			isa = PBXGroup;
 			children = (
 				62015CD323EF21A900673EBB /* AddNewTopicResponse.swift */,
+				496A987D242D2DBD007BE243 /* CategoriesResponse.swift */,
 				496A9876242BEACF007BE243 /* DeleteTopicResponse.swift */,
 				62A697A523E89C2200CCEA3E /* LatestTopicsResponse.swift */,
 				62015CC723EF162D00673EBB /* SingleTopicResponse.swift */,
-				496A987D242D2DBD007BE243 /* CategoriesResponse.swift */,
+				496E7FF82435189000019B20 /* UserDetailResponse.swift */,
+				496E7FF32435177B00019B20 /* UsersResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -362,6 +417,7 @@
 				627DC5B223E5F581006D8615 /* Assets.xcassets in Resources */,
 				62015CBB23EF084C00673EBB /* TopicCell.xib in Resources */,
 				496A9888242D3872007BE243 /* CategoryCell.xib in Resources */,
+				496E80062435201C00019B20 /* UserCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,19 +428,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				496E7FFE243519F200019B20 /* User.swift in Sources */,
 				62A697A323E89BD600CCEA3E /* LatestTopicsRequest.swift in Sources */,
 				627DC5BE23E5F7A0006D8615 /* Coordinator.swift in Sources */,
 				496A987A242BF15E007BE243 /* Log.swift in Sources */,
+				496E7FEF24350E6C00019B20 /* UsersCoordinator.swift in Sources */,
 				627DC5C323E5FEE4006D8615 /* TopicsViewModel.swift in Sources */,
+				496E800A243520A500019B20 /* UserDetailRequest.swift in Sources */,
 				62015CC023EF0F8100673EBB /* TopicDetailViewModel.swift in Sources */,
 				62015CC823EF162D00673EBB /* SingleTopicResponse.swift in Sources */,
 				496A987E242D2DBD007BE243 /* CategoriesResponse.swift in Sources */,
+				496E7FF92435189000019B20 /* UserDetailResponse.swift in Sources */,
 				62015CC423EF14FC00673EBB /* TopicDetailDataManager.swift in Sources */,
 				496A9871242AA0C0007BE243 /* Topic.swift in Sources */,
 				62015CDB23EF301300673EBB /* CategoriesViewModel.swift in Sources */,
 				62015CBD23EF0C6700673EBB /* TopicsCoordinator.swift in Sources */,
 				62A697A623E89C2200CCEA3E /* LatestTopicsResponse.swift in Sources */,
 				627DC5CF23E604D2006D8615 /* DiscourseClientRemoteDataManager.swift in Sources */,
+				496E80082435207B00019B20 /* UsersRequest.swift in Sources */,
 				627DC5C523E5FEFD006D8615 /* TopicsViewController.swift in Sources */,
 				496A9887242D3872007BE243 /* CategoryCell.swift in Sources */,
 				627DC5D323E605E5006D8615 /* DiscourseClientRemoteDataManagerImpl.swift in Sources */,
@@ -395,19 +456,24 @@
 				62015CC623EF161E00673EBB /* SingleTopicRequest.swift in Sources */,
 				62015CCE23EF1F5200673EBB /* AddTopicViewModel.swift in Sources */,
 				62015CDF23EF30E600673EBB /* CategoriesCoordinator.swift in Sources */,
+				496E7FFC2435195400019B20 /* UsersViewModel.swift in Sources */,
 				62015CD223EF205100673EBB /* CreateTopicRequest.swift in Sources */,
 				62015CC223EF0FA000673EBB /* TopicDetailViewController.swift in Sources */,
+				496E800024351A8800019B20 /* UserCellViewModel.swift in Sources */,
+				496E7FF22435173F00019B20 /* UsersDataManager.swift in Sources */,
 				62015CDD23EF302900673EBB /* CategoriesViewController.swift in Sources */,
 				496A9875242BEA67007BE243 /* DeleteTopicRequest.swift in Sources */,
 				496A987C242D2D7C007BE243 /* CategoriesDataManager.swift in Sources */,
 				627DC5C823E60384006D8615 /* TopicsDataManager.swift in Sources */,
 				496A9882242D31C9007BE243 /* CategoriesRequest.swift in Sources */,
 				627DC5C023E5F7B3006D8615 /* AppCoordinator.swift in Sources */,
+				496E7FF72435185400019B20 /* UserDetailDataManager.swift in Sources */,
 				62A697A823E89E6700CCEA3E /* DiscourseClientLocalDataManagerImpl.swift in Sources */,
 				62015CD623EF21F600673EBB /* AddTopicDataManager.swift in Sources */,
 				627DC5D923E60727006D8615 /* APIRequest.swift in Sources */,
 				496A9877242BEACF007BE243 /* DeleteTopicResponse.swift in Sources */,
 				62015CD023EF1F6800673EBB /* AddTopicViewController.swift in Sources */,
+				496E800224351E8000019B20 /* UsersViewController.swift in Sources */,
 				627DC5A923E5F580006D8615 /* AppDelegate.swift in Sources */,
 				496A9884242D3298007BE243 /* CategoryCellViewModel.swift in Sources */,
 				62015CB723EF04C200673EBB /* TopicCellViewModel.swift in Sources */,
@@ -417,6 +483,8 @@
 				496A9873242AA0F0007BE243 /* TopicDetails.swift in Sources */,
 				627DC5CD23E6048A006D8615 /* DiscourseClientDataManager.swift in Sources */,
 				496A9880242D2E82007BE243 /* Category.swift in Sources */,
+				496E80052435201C00019B20 /* UserCell.swift in Sources */,
+				496E7FF42435177B00019B20 /* UsersResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
