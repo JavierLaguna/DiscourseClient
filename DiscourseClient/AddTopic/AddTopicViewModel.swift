@@ -40,10 +40,10 @@ class AddTopicViewModel {
         coordinatorDelegate?.addTopicCancelButtonTapped()
     }
 
-    func submitButtonTapped(title: String) {
+    func submitButtonTapped(title: String, body: String) {
         let createdAt = dateFormatter.string(from: Date())
         
-        dataManager.addTopic(title: title, raw: "JL prueba de creación de tooooooopic", createdAt: createdAt) { [weak self] result in
+        dataManager.addTopic(title: title, raw: body, createdAt: createdAt) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
