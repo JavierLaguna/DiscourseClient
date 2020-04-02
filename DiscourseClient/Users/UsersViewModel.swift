@@ -39,17 +39,15 @@ class UsersViewModel {
             guard let self = self else { return }
 
             switch result {
-            case .success(let topicsResp):
-                print()
-//                guard let topics = topicsResp?.topics else { return }
-//                self.topicViewModels = topics.map { TopicCellViewModel(topic: $0) }
-//
-//                self.viewDelegate?.topicsFetched()
+            case .success(let usersResp):
+                guard let users = usersResp?.users else { return }
+                self.usersViewModels = users.map { UserCellViewModel(user: $0) }
+
+                self.viewDelegate?.usersFetched()
 
             case .failure(let error):
                 Log.error(error)
-                print()
-//                self.viewDelegate?.errorFetchingTopics()
+                self.viewDelegate?.errorFetchingUsers()
             }
         }
     }

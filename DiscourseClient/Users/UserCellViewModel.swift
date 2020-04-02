@@ -14,6 +14,6 @@ class UserCellViewModel {
     
     init(user: User) {
         self.user = user
-//        self.textLabelText = user.title
+        self.textLabelText = user.username
     }
 }

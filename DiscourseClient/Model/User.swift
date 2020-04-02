@@ -12,39 +12,54 @@ typealias Users = [User]
 
 struct User: Codable {
     
-//    let id: Int
-//    let title: String
-//    let fancyTitle: String
-//    let slug: String
-//    let postsCount: Int
-//    let replyCount: Int
-//    let created_at: String
-//    let lastPostedAt: String
-//    let pinned: Bool
-//    let visible: Bool
-//    let closed: Bool
-//    let archived: Bool
-//    let views: Int
-//    let likeCount: Int
-//    let hasSummary: Bool
-//    let archetype: String
-//    let lastPosterUsername: String?
-//    let categoryId: Int
-//    let pinnedGlobally: Bool
-//
-//    enum CodingKeys: String, CodingKey {
-//
-//        case id, title, slug, pinned, visible, closed, archived, views, archetype
-//        case fancyTitle = "fancy_title"
-//        case postsCount = "posts_count"
-//        case replyCount = "reply_count"
-//        case created_at = "created_at"
-//        case lastPostedAt = "last_posted_at"
-//        case likeCount = "like_count"
-//        case hasSummary = "has_summary"
-//        case lastPosterUsername = "last_poster_username"
-//        case categoryId = "category_id"
-//        case pinnedGlobally = "pinned_globally"
-//    }
+    let id: Int
+    let likesReceived: Int
+    let likesGiven: Int
+    let topicsEntered: Int
+    let topicCount: Int
+    let postCount: Int
+    let postsRead: Int
+    let daysVisited: Int
+    let username: String
+    let avatarTemplate: String
+    let name: String?
     
+    enum CodingKeys: String, CodingKey {
+        case userKey = "user"
+        
+        case id, username, name
+        case avatarTemplate = "avatar_template"
+        case likesReceived = "likes_received"
+        case likesGiven = "likes_given"
+        case topicsEntered = "topics_entered"
+        case topicCount = "topic_count"
+        case postCount = "post_count"
+        case postsRead = "posts_read"
+        case daysVisited = "days_visited"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let rootUser = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .userKey)
+        
+        id = try rootUser.decode(Int.self, forKey: .id)
+        username = try rootUser.decode(String.self, forKey: .username)
+        avatarTemplate = try rootUser.decode(String.self, forKey: .avatarTemplate)
+        name = try rootUser.decodeIfPresent(String.self, forKey: .name)
+        
+        likesReceived = try container.decode(Int.self, forKey: .likesReceived)
+        likesGiven = try container.decode(Int.self, forKey: .likesGiven)
+        topicsEntered = try container.decode(Int.self, forKey: .topicsEntered)
+        topicCount = try container.decode(Int.self, forKey: .topicCount)
+        postCount = try container.decode(Int.self, forKey: .postCount)
+        postsRead = try container.decode(Int.self, forKey: .postsRead)
+        daysVisited = try container.decode(Int.self, forKey: .daysVisited)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        try container.encode(username, forKey: .username)
+    }
 }

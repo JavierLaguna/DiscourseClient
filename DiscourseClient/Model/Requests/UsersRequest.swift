@@ -12,6 +12,14 @@ struct UsersRequest: APIRequest {
     
     typealias Response = UsersResponse
     
+    let period: Period
+    let order: Order
+    
+    init(period: Period = .weekly, order: Order = .topicCount) {
+        self.period = period
+        self.order = order
+    }
+    
     var method: Method {
         return .GET
     }
@@ -19,12 +27,11 @@ struct UsersRequest: APIRequest {
     var path: String {
         return "/directory_items.json"
     }
-    
-    // ?period={period}&order={order}
-    
+        
     var parameters: [String : String] {
         return [
-            "period":
+            "period": period.rawValue,
+            "order": order.rawValue,
         ]
     }
     
