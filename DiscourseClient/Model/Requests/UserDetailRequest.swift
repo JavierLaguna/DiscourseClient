@@ -12,12 +12,18 @@ struct UserDetailRequest: APIRequest {
     
     typealias Response = UserDetailResponse
     
+    let username: String
+    
+    init(username: String) {
+        self.username = username
+    }
+    
     var method: Method {
         return .GET
     }
     
     var path: String {
-        return "/categories.json"
+        return "/users/\(username).json"
     }
     
     var parameters: [String : String] {

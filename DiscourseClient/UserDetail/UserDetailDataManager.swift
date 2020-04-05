@@ -10,6 +10,6 @@ import Foundation
 
 /// DataManager con las operaciones necesarias de este módulo
 protocol UserDetailDataManager: class {
-    func fetchUser(id: Int, completion: @escaping (Result<UserDetailResponse?, Error>) -> ())
+    func fetchUser(username: String, completion: @escaping (Result<UserDetailResponse?, Error>) -> ())
 
 }

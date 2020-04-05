@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 /// DataManager de la app. Usa un localDataManager y un remoteDataManager que colaboran entre ellos
 /// En las extensiones de abajo, encontramos la implementación de aquellos métodos necesarios en cada módulo de la app
 /// Este DataManager sólo utiliza llamadas remotas, pero podría extenderse para serialziar las respuestas, y poder implementar un offline first en el futuro
@@ -57,7 +56,7 @@ extension DiscourseClientDataManager: UsersDataManager {
 }
 
 extension DiscourseClientDataManager: UserDetailDataManager {
-    func fetchUser(id: Int, completion: @escaping (Result<UserDetailResponse?, Error>) -> ()) {
-        remoteDataManager.fetchUser(id: id, completion: completion)
+    func fetchUser(username: String, completion: @escaping (Result<UserDetailResponse?, Error>) -> ()) {
+        remoteDataManager.fetchUser(username: username, completion: completion)
     }
 }

@@ -13,29 +13,26 @@ typealias Users = [User]
 struct User: Codable {
     
     let id: Int
-    let likesReceived: Int
-    let likesGiven: Int
-    let topicsEntered: Int
-    let topicCount: Int
-    let postCount: Int
-    let postsRead: Int
-    let daysVisited: Int
     let username: String
-    let avatarTemplate: String
     let name: String?
+    let avatarTemplate: String
+    let email: String?
+    let canEdit: Bool?
+    let canEditUsername: Bool?
+    let canEditEmail: Bool?
+    let canEditName: Bool?
+    let ignored: Bool?
+    let muted: Bool?
     
     enum CodingKeys: String, CodingKey {
         case userKey = "user"
         
-        case id, username, name
+        case id, username, name, email, ignored, muted
         case avatarTemplate = "avatar_template"
-        case likesReceived = "likes_received"
-        case likesGiven = "likes_given"
-        case topicsEntered = "topics_entered"
-        case topicCount = "topic_count"
-        case postCount = "post_count"
-        case postsRead = "posts_read"
-        case daysVisited = "days_visited"
+        case canEdit = "can_edit"
+        case canEditUsername = "can_edit_username"
+        case canEditEmail = "can_edit_email"
+        case canEditName = "can_edit_name"
     }
     
     init(from decoder: Decoder) throws {
@@ -45,15 +42,14 @@ struct User: Codable {
         id = try rootUser.decode(Int.self, forKey: .id)
         username = try rootUser.decode(String.self, forKey: .username)
         avatarTemplate = try rootUser.decode(String.self, forKey: .avatarTemplate)
+        email = try rootUser.decodeIfPresent(String.self, forKey: .email)
         name = try rootUser.decodeIfPresent(String.self, forKey: .name)
-        
-        likesReceived = try container.decode(Int.self, forKey: .likesReceived)
-        likesGiven = try container.decode(Int.self, forKey: .likesGiven)
-        topicsEntered = try container.decode(Int.self, forKey: .topicsEntered)
-        topicCount = try container.decode(Int.self, forKey: .topicCount)
-        postCount = try container.decode(Int.self, forKey: .postCount)
-        postsRead = try container.decode(Int.self, forKey: .postsRead)
-        daysVisited = try container.decode(Int.self, forKey: .daysVisited)
+        canEdit = try rootUser.decodeIfPresent(Bool.self, forKey: .canEdit)
+        canEditUsername = try rootUser.decodeIfPresent(Bool.self, forKey: .canEditUsername)
+        canEditEmail = try rootUser.decodeIfPresent(Bool.self, forKey: .canEditEmail)
+        canEditName = try rootUser.decodeIfPresent(Bool.self, forKey: .canEditName)
+        ignored = try rootUser.decodeIfPresent(Bool.self, forKey: .ignored)
+        muted = try rootUser.decodeIfPresent(Bool.self, forKey: .muted)
     }
     
     func encode(to encoder: Encoder) throws {
