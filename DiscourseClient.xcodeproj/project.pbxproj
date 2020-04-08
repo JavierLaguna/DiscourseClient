@@ -36,6 +36,8 @@
 		496E800A243520A500019B20 /* UserDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E8009243520A500019B20 /* UserDetailRequest.swift */; };
 		49AC8308243A45B800A7F79C /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC8307243A45B800A7F79C /* UserDetailViewModel.swift */; };
 		49AC830A243A475400A7F79C /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC8309243A475400A7F79C /* UserDetailViewController.swift */; };
+		49AC830C243A663900A7F79C /* UpdateNameUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC830B243A663900A7F79C /* UpdateNameUserRequest.swift */; };
+		49AC830E243A66BF00A7F79C /* UpdateNameUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC830D243A66BF00A7F79C /* UpdateNameUserResponse.swift */; };
 		62015CB723EF04C200673EBB /* TopicCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62015CB623EF04C200673EBB /* TopicCellViewModel.swift */; };
 		62015CBA23EF084C00673EBB /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62015CB823EF084C00673EBB /* TopicCell.swift */; };
 		62015CBB23EF084C00673EBB /* TopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62015CB923EF084C00673EBB /* TopicCell.xib */; };
@@ -105,6 +107,8 @@
 		496E8009243520A500019B20 /* UserDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailRequest.swift; sourceTree = "<group>"; };
 		49AC8307243A45B800A7F79C /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
 		49AC8309243A475400A7F79C /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		49AC830B243A663900A7F79C /* UpdateNameUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNameUserRequest.swift; sourceTree = "<group>"; };
+		49AC830D243A66BF00A7F79C /* UpdateNameUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNameUserResponse.swift; sourceTree = "<group>"; };
 		62015CB623EF04C200673EBB /* TopicCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCellViewModel.swift; sourceTree = "<group>"; };
 		62015CB823EF084C00673EBB /* TopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 		62015CB923EF084C00673EBB /* TopicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicCell.xib; sourceTree = "<group>"; };
@@ -347,6 +351,7 @@
 				496A9874242BEA67007BE243 /* DeleteTopicRequest.swift */,
 				62A697A223E89BD600CCEA3E /* LatestTopicsRequest.swift */,
 				62015CC523EF161E00673EBB /* SingleTopicRequest.swift */,
+				49AC830B243A663900A7F79C /* UpdateNameUserRequest.swift */,
 				496E8009243520A500019B20 /* UserDetailRequest.swift */,
 				496E80072435207B00019B20 /* UsersRequest.swift */,
 			);
@@ -361,6 +366,7 @@
 				496A9876242BEACF007BE243 /* DeleteTopicResponse.swift */,
 				62A697A523E89C2200CCEA3E /* LatestTopicsResponse.swift */,
 				62015CC723EF162D00673EBB /* SingleTopicResponse.swift */,
+				49AC830D243A66BF00A7F79C /* UpdateNameUserResponse.swift */,
 				496E7FF82435189000019B20 /* UserDetailResponse.swift */,
 				496E7FF32435177B00019B20 /* UsersResponse.swift */,
 			);
@@ -453,6 +459,7 @@
 				496A987E242D2DBD007BE243 /* CategoriesResponse.swift in Sources */,
 				496E7FF92435189000019B20 /* UserDetailResponse.swift in Sources */,
 				62015CC423EF14FC00673EBB /* TopicDetailDataManager.swift in Sources */,
+				49AC830E243A66BF00A7F79C /* UpdateNameUserResponse.swift in Sources */,
 				496A9871242AA0C0007BE243 /* Topic.swift in Sources */,
 				62015CDB23EF301300673EBB /* CategoriesViewModel.swift in Sources */,
 				62015CBD23EF0C6700673EBB /* TopicsCoordinator.swift in Sources */,
@@ -496,6 +503,7 @@
 				627DC5D123E604E7006D8615 /* DiscourseClientLocalDataManager.swift in Sources */,
 				627DC5AB23E5F580006D8615 /* SceneDelegate.swift in Sources */,
 				496A9873242AA0F0007BE243 /* TopicDetails.swift in Sources */,
+				49AC830C243A663900A7F79C /* UpdateNameUserRequest.swift in Sources */,
 				627DC5CD23E6048A006D8615 /* DiscourseClientDataManager.swift in Sources */,
 				496A9880242D2E82007BE243 /* Category.swift in Sources */,
 				496E80052435201C00019B20 /* UserCell.swift in Sources */,

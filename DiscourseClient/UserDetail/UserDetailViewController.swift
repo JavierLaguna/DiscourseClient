@@ -24,10 +24,10 @@ class UserDetailViewController: UIViewController {
     }()
     
     lazy var labelEmail: UILabel = {
-           let label = UILabel()
-           label.translatesAutoresizingMaskIntoConstraints = false
-           return label
-       }()
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     lazy var userIDStackView: UIStackView = {
         let labelUserIDTitle = UILabel()
@@ -67,6 +67,7 @@ class UserDetailViewController: UIViewController {
     }()
     
     let viewModel: UserDetailViewModel
+    var editedName: String?
     
     init(viewModel: UserDetailViewModel) {
         self.viewModel = viewModel
@@ -123,11 +124,88 @@ class UserDetailViewController: UIViewController {
         labelUsername.text = viewModel.labelUserNameText
         labelEmail.text = viewModel.labelEmailText
         
+        showNameStack(name: viewModel.labelNameText, editable: viewModel.canModifyName)
+        
+        if viewModel.canModifyName {
+            showSaveButton()
+        }
     }
-
+    
     fileprivate func showErrorModifingUserDetailAlert() {
         let alertMessage: String = NSLocalizedString("Error modifing user\nPlease try again later", comment: "")
         showAlert(alertMessage)
+    }
+    
+    private func showNameStack(name: String?, editable: Bool) {
+        let nameLabel = UILabel()
+        nameLabel.text = NSLocalizedString("User name: ", comment: "")
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let nameStackView = UIStackView(arrangedSubviews: [nameLabel])
+        nameStackView.translatesAutoresizingMaskIntoConstraints = false
+        nameStackView.axis = .horizontal
+        
+        if editable {
+            let nameField = UITextField()
+            nameField.translatesAutoresizingMaskIntoConstraints = false
+            nameField.borderStyle = .line
+            nameField.placeholder = NSLocalizedString("User name", comment: "")
+            nameField.text = name
+            nameField.addTarget(self, action: #selector(nameDidChange(_:)), for: .editingChanged)
+            nameStackView.addArrangedSubview(nameField)
+        } else {
+            let nameField = UILabel()
+            nameField.translatesAutoresizingMaskIntoConstraints = false
+            nameField.text = name
+            nameStackView.addArrangedSubview(nameField)
+        }
+        
+        view.addSubview(nameStackView)
+        NSLayoutConstraint.activate([
+            nameStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
+            nameStackView.topAnchor.constraint(equalTo: userEmailStackView.bottomAnchor, constant: 8)
+        ])
+    }
+    
+    private func showSaveButton() {
+        let rightBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "tray.and.arrow.down.fill"), style: .plain, target: self, action: #selector(saveNameAdvice))
+        rightBarButtonItem.tintColor = .black
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+    
+    @objc private func nameDidChange(_ textField: UITextField){
+        editedName = textField.text
+    }
+    
+    @objc private func saveNameAdvice() {
+        let yesAction = UIAlertAction(title: "Update", style: .default, handler: { [weak self] _ in
+            self?.saveName()
+        })
+        
+        let noAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let alert = UIAlertController(title: "Are you sure to update user name?", message: "", preferredStyle: .alert)
+        alert.addAction(noAction)
+        alert.addAction(yesAction)
+        
+        self.present(alert, animated: true)
+    }
+    
+    private func saveName() {
+        guard let editedName = editedName, !editedName.isEmpty, editedName != viewModel.labelNameText else {
+            return showErrorEditidingName()
+        }
+        
+        viewModel.modifyUser(newName: editedName)
+    }
+    
+    fileprivate func showErrorEditidingName() {
+        let alertMessage: String = NSLocalizedString("User name can not be empty or the same value", comment: "")
+        showAlert(alertMessage)
+    }
+    
+    fileprivate func successModification(){
+        let alertMessage: String = NSLocalizedString("User name updated!", comment: "")
+        showAlert(alertMessage, "Success!")
     }
 }
 
@@ -142,5 +220,9 @@ extension UserDetailViewController: UserDetailViewDelegate {
     
     func errorModifingUserDetail() {
         showErrorModifingUserDetailAlert()
+    }
+    
+    func successModifingUserDetail() {
+        successModification()
     }
 }

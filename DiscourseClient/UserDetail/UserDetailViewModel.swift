@@ -10,8 +10,7 @@ import Foundation
 
 /// Delegate que usaremos para comunicar eventos relativos a navegación, al coordinator correspondiente
 protocol UserDetailCoordinatorDelegate: class {
-    func userDetailBackButtonTapped()
-    func userUpdated()
+    func userDetailBackButtonTapped(needUpdateUsers: Bool)
 }
 
 /// Delegate para comunicar a la vista cosas relacionadas con UI
@@ -19,6 +18,7 @@ protocol UserDetailViewDelegate: class {
     func userDetailFetched()
     func errorFetchingUserDetail()
     func errorModifingUserDetail()
+    func successModifingUserDetail()
 }
 
 class UserDetailViewModel {
@@ -27,6 +27,7 @@ class UserDetailViewModel {
     var labelEmailText: String?
     var labelNameText: String?
     var canModifyName = false
+    var userModified = false
     
     weak var viewDelegate: UserDetailViewDelegate?
     weak var coordinatorDelegate: UserDetailCoordinatorDelegate?
@@ -62,21 +63,22 @@ class UserDetailViewModel {
         }
     }
     
-    func modifyUser() {
-        //        topicDetailDataManager.deleteTopic(id: topicID) { [weak self] result in
-        //            guard let self = self else { return}
-        //
-        //            switch result {
-        //            case .success:
-        //                self.coordinatorDelegate?.topicDeleted()
-        //            case .failure(let error):
-        //                Log.error(error)
-        //                self.viewDelegate?.errorDeletingTopicDetail()
-        //            }
-        //        }
+    func modifyUser(newName: String) {
+        userDetailDataManager.updateName(username: username, name: newName) { [weak self] result in
+            guard let self = self else { return}
+            
+            switch result {
+            case .success:
+                self.userModified = true
+                self.viewDelegate?.successModifingUserDetail()
+            case .failure(let error):
+                Log.error(error)
+                self.viewDelegate?.errorModifingUserDetail()
+            }
+        }
     }
     
     func backButtonTapped() {
-        coordinatorDelegate?.userDetailBackButtonTapped()
+        coordinatorDelegate?.userDetailBackButtonTapped(needUpdateUsers: userModified)
     }
 }

@@ -34,17 +34,21 @@ class UsersViewModel {
         fetchUsers()
     }
     
+    func refreshUsers() {
+        fetchUsers()
+    }
+    
     private func fetchUsers() {
         usersDataManager.fetchAllUsers { [weak self] result in
             guard let self = self else { return }
-
+            
             switch result {
             case .success(let usersResp):
                 guard let users = usersResp?.users else { return }
                 self.usersViewModels = users.map { UserCellViewModel(user: $0) }
-
+                
                 self.viewDelegate?.usersFetched()
-
+                
             case .failure(let error):
                 Log.error(error)
                 self.viewDelegate?.errorFetchingUsers()

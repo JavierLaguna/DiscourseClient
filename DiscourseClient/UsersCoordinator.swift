@@ -46,12 +46,11 @@ extension UsersCoordinator: UsersCoordinatorDelegate {
 }
 
 extension UsersCoordinator: UserDetailCoordinatorDelegate {
-    func userDetailBackButtonTapped() {
+    func userDetailBackButtonTapped(needUpdateUsers: Bool = false) {
         presenter.popViewController(animated: true)
         
-    }
-    
-    func userUpdated() {
-//        usersViewModel?.refreshusers()
+        if needUpdateUsers {
+            usersViewModel?.refreshUsers()
+        }
     }
 }
