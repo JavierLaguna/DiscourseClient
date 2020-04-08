@@ -10,7 +10,7 @@ import Foundation
 
 // Puedes echar un vistazo en https://docs.discourse.org
 
-struct UserDetailResponse: Codable {
+struct UserDetailResponse: Decodable {
     let user: User
     
     init(from decoder: Decoder) throws {

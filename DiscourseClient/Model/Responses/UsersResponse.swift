@@ -10,7 +10,7 @@ import Foundation
 
 // DOC Puedes echar un vistazo en https://docs.discourse.org
 
-struct UsersResponse: Codable {
+struct UsersResponse: Decodable {
     let users: Users
 
     enum CodingKeys: String, CodingKey {
@@ -21,10 +21,5 @@ struct UsersResponse: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         users = try container.decode(Users.self, forKey: .users)
-    }
-
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(users, forKey: .users)
     }
 }

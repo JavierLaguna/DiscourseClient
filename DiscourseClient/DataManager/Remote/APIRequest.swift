@@ -18,7 +18,7 @@ enum Method: String {
 }
 
 protocol APIRequest {
-    associatedtype Response: Codable
+    associatedtype Response: Decodable // Para una response solo necesitamos que sea Decodable, no se necesita el encode
     var method: Method { get }
     var path: String { get }
     var parameters: [String: String] { get }

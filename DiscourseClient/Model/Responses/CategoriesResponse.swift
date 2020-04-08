@@ -10,7 +10,7 @@ import Foundation
 
 // DOC Puedes echar un vistazo en https://docs.discourse.org
 
-struct CategoriesResponse: Codable {
+struct CategoriesResponse: Decodable {
     let categories: Categories
     
     enum CodingKeys: String, CodingKey {
@@ -23,11 +23,6 @@ struct CategoriesResponse: Codable {
         let rootCategories = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .categoriesRoot)
         
         categories = try rootCategories.decode(Categories.self, forKey: .categories)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(categories, forKey: .categories)
     }
 }
 
