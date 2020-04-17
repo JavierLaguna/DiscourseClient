@@ -51,6 +51,9 @@ class AddTopicViewModel {
                 self.coordinatorDelegate?.topicSuccessfullyAdded()
                 
             case .failure(let error):
+                /*
+                 Muy bien por esta clase de Log! 👏
+                 */
                 Log.error(error)
                 self.viewDelegate?.errorAddingTopic()
             }

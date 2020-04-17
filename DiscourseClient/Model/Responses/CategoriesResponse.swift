@@ -17,7 +17,10 @@ struct CategoriesResponse: Decodable {
         case categoriesRoot = "category_list"
         case categories
     }
-    
+
+    /*
+     Buena forma de acceder al objeto anidado. ¡Me gusta! 😍
+     */
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let rootCategories = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .categoriesRoot)

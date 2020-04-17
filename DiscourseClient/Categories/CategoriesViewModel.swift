@@ -41,6 +41,9 @@ class CategoriesViewModel {
             switch result {
             case .success(let categoriesResp):
                 guard let categories = categoriesResp?.categories else { return }
+                /*
+                 Muy bien el uso de map! ❤️
+                 */
                 self.categoriesViewModels = categories.map { CategoryCellViewModel(category: $0) }
                 
                 self.viewDelegate?.categoriesFetched()

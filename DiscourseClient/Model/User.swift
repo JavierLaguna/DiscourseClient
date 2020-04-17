@@ -10,6 +10,9 @@ import Foundation
 
 typealias Users = [User]
 
+/*
+ Muy bien el uso de decodeIfPresent
+ */
 struct User: Codable {
     
     let id: Int

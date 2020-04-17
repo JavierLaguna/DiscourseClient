@@ -17,7 +17,11 @@ class UserCell: UITableViewCell {
         didSet {
             guard let viewModel = viewModel else { return }
             nameLabel?.text = viewModel.textLabelText
-            
+
+            /*
+             No está mal hacer la descarga aquí. Pero ten en cuenta que este código se llama cada vez que UIKit
+             llama a cellForRowAtIndexPath. Como posible mejora, te propondría hacer esta descarga en el init de UserCellViewModel
+             */
             if let avatarURL = viewModel.imageUrl {
                 DispatchQueue.global(qos: .userInitiated).async { [weak self] in
                     guard let data = try? Data(contentsOf: avatarURL),
