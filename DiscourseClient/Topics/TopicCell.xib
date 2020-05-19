@@ -1,21 +1,128 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TopicCell" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="TopicCell" customModule="DiscourseClient" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="401" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="401" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zSl-z6-6tp">
+                        <rect key="frame" x="16" y="16" width="64" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="64" id="2Nr-vT-GZA"/>
+                            <constraint firstAttribute="height" constant="64" id="S5r-2l-VDz"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Yuq-La-nP9">
+                        <rect key="frame" x="91" y="16" width="294" height="64"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Om3-jm-u9m">
+                                <rect key="frame" x="0.0" y="0.0" width="294" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="BlackKC"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="aNC-ib-CvZ">
+                                <rect key="frame" x="0.0" y="50" width="294" height="14"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="UXw-6H-QZy">
+                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="14"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icoSmallAnswers" translatesAutoresizingMaskIntoConstraints="NO" id="Ey6-dc-1aM">
+                                                <rect key="frame" x="0.0" y="0.0" width="17" height="14"/>
+                                                <color key="tintColor" name="GrayKC"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aor-vD-8LV">
+                                                <rect key="frame" x="21" y="0.0" width="20.5" height="14"/>
+                                                <color key="tintColor" name="GrayKC"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="GrayKC"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="o5f-sY-cuC">
+                                        <rect key="frame" x="47.5" y="0.0" width="48.5" height="14"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icoViewsSmall" translatesAutoresizingMaskIntoConstraints="NO" id="XSy-gK-7aC">
+                                                <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                                                <color key="tintColor" name="GrayKC"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="14" id="HgB-st-733"/>
+                                                    <constraint firstAttribute="width" constant="14" id="reF-tj-NRb"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="102" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dl0-Ot-4YE">
+                                                <rect key="frame" x="18" y="0.0" width="30.5" height="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="GrayKC"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="QD3-Pc-fUW">
+                                        <rect key="frame" x="102" y="0.0" width="192" height="14"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icoSmallCalendar" translatesAutoresizingMaskIntoConstraints="NO" id="pZ1-UG-aY4">
+                                                <rect key="frame" x="0.0" y="0.0" width="12" height="14"/>
+                                                <color key="tintColor" name="GrayKC"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="12" id="1oo-SB-Jzf"/>
+                                                    <constraint firstAttribute="height" constant="14" id="IQw-dK-ng9"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Jul 23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgH-a4-Haa">
+                                                <rect key="frame" x="16" y="0.0" width="176" height="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="GrayKC"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="zSl-z6-6tp" secondAttribute="bottom" constant="16" id="7Mn-8l-v8O"/>
+                    <constraint firstItem="Yuq-La-nP9" firstAttribute="leading" secondItem="zSl-z6-6tp" secondAttribute="trailing" constant="11" id="8kb-eJ-SjP"/>
+                    <constraint firstItem="Om3-jm-u9m" firstAttribute="top" secondItem="zSl-z6-6tp" secondAttribute="top" id="IEB-8L-VsO"/>
+                    <constraint firstItem="o5f-sY-cuC" firstAttribute="bottom" secondItem="zSl-z6-6tp" secondAttribute="bottom" id="OBr-9J-sQg"/>
+                    <constraint firstAttribute="trailing" secondItem="Yuq-La-nP9" secondAttribute="trailing" constant="16" id="QwP-Rx-nSv"/>
+                    <constraint firstItem="zSl-z6-6tp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="x5I-b2-CN1"/>
+                    <constraint firstItem="zSl-z6-6tp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="xri-S3-Fbf"/>
+                </constraints>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lastPostLabel" destination="QgH-a4-Haa" id="1Kh-CF-L7Z"/>
+                <outlet property="lastPosterImage" destination="zSl-z6-6tp" id="6U9-4V-bi5"/>
+                <outlet property="postCountLabel" destination="Aor-vD-8LV" id="1hf-pG-yDn"/>
+                <outlet property="postTitleLabel" destination="Om3-jm-u9m" id="nZp-Oe-uhc"/>
+                <outlet property="posterCountLabel" destination="Dl0-Ot-4YE" id="Qt7-2W-WTI"/>
+            </connections>
+            <point key="canvasLocation" x="190.57971014492756" y="171.42857142857142"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icoSmallAnswers" width="17" height="14"/>
+        <image name="icoSmallCalendar" width="12" height="14"/>
+        <image name="icoViewsSmall" width="13" height="14"/>
+        <namedColor name="BlackKC">
+            <color red="0.047058823529411764" green="0.047058823529411764" blue="0.047058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GrayKC">
+            <color red="0.047058823529411764" green="0.047058823529411764" blue="0.047058823529411764" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

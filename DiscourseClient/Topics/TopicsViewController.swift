@@ -17,8 +17,6 @@ class TopicsViewController: UIViewController {
         table.dataSource = self
         table.delegate = self
         table.register(UINib(nibName: "TopicCell", bundle: nil), forCellReuseIdentifier: "TopicCell")
-        table.estimatedRowHeight = 100
-        table.rowHeight = UITableView.automaticDimension
         return table
     }()
 
