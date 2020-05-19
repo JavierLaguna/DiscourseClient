@@ -19,6 +19,14 @@ class TopicsViewController: UIViewController {
         table.register(UINib(nibName: "TopicCell", bundle: nil), forCellReuseIdentifier: "TopicCell")
         return table
     }()
+    
+    lazy var floatingButton: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "icoNew"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(plusButtonTapped)))
+        return imageView
+    }()
 
     let viewModel: TopicsViewModel
 
@@ -41,11 +49,14 @@ class TopicsViewController: UIViewController {
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-
-
-        let rightBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(plusButtonTapped))
-        rightBarButtonItem.tintColor = .black
-        navigationItem.rightBarButtonItem = rightBarButtonItem
+        
+        view.addSubview(floatingButton)
+        NSLayoutConstraint.activate([
+            floatingButton.widthAnchor.constraint(equalToConstant: floatingButton.bounds.height),
+            floatingButton.heightAnchor.constraint(equalToConstant: floatingButton.bounds.width),
+            floatingButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15),
+            floatingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -12)
+        ])
     }
 
     override func viewDidLoad() {
