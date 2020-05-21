@@ -38,7 +38,7 @@ class TopicCellViewModel {
         
         self.textLabelText = topic.title
         self.postsCount = "\(topic.postsCount)"
-        self.postersCount = "\(topic.posters.count)"
+        self.postersCount = "\(topic.posters?.count ?? 0)"
         self.lastPostDate = ""
         
         let formatter = DateFormatter()

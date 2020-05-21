@@ -31,7 +31,7 @@ struct Topic: Codable {
     let lastPosterUsername: String?
     let categoryId: Int
     let pinnedGlobally: Bool
-    let posters: [Poster]
+    let posters: [Poster]?
     
     enum CodingKeys: String, CodingKey {
         
