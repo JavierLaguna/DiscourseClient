@@ -20,19 +20,19 @@
                         <rect key="frame" x="16" y="25" width="362" height="106"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xuY-BI-YUu">
-                                <rect key="frame" x="18" y="10" width="332" height="86"/>
+                                <rect key="frame" x="18" y="10" width="334" height="86"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IRk-Dv-gQ9">
-                                        <rect key="frame" x="0.0" y="0.0" width="282" height="86"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="284" height="86"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienvenido e eh.ho" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ml5-JI-Unp">
-                                                <rect key="frame" x="0.0" y="0.0" width="282" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="284" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discourse Setup The first paragraph of this pinned topic…" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4F-Pf-j0h">
-                                                <rect key="frame" x="0.0" y="45" width="282" height="41"/>
+                                                <rect key="frame" x="0.0" y="45" width="284" height="41"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -40,7 +40,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LM4-9R-Uhe">
-                                        <rect key="frame" x="298" y="0.0" width="34" height="86"/>
+                                        <rect key="frame" x="300" y="0.0" width="34" height="86"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="QC8-XN-V8F">
                                                 <rect key="frame" x="0.0" y="0.0" width="34" height="35"/>
@@ -61,7 +61,7 @@
                         <color key="backgroundColor" name="OrangeKCTangerine"/>
                         <constraints>
                             <constraint firstItem="xuY-BI-YUu" firstAttribute="leading" secondItem="gRM-et-pwR" secondAttribute="leading" constant="18" id="EoL-Vg-rKj"/>
-                            <constraint firstAttribute="trailing" secondItem="xuY-BI-YUu" secondAttribute="trailing" constant="12" id="fCz-PO-HuR"/>
+                            <constraint firstAttribute="trailing" secondItem="xuY-BI-YUu" secondAttribute="trailing" constant="10" id="fCz-PO-HuR"/>
                             <constraint firstAttribute="bottom" secondItem="xuY-BI-YUu" secondAttribute="bottom" constant="10" id="mXo-Wq-e00"/>
                             <constraint firstItem="xuY-BI-YUu" firstAttribute="top" secondItem="gRM-et-pwR" secondAttribute="top" constant="10" id="pxl-MD-Lt8"/>
                         </constraints>

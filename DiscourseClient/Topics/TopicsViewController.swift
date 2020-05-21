@@ -22,10 +22,11 @@ class TopicsViewController: UIViewController {
     }()
     
     lazy var floatingButton: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "icoNew"))
+        let imageView = UIImageView(image: UIImage(named: "icoNew")?.withRenderingMode(.alwaysOriginal))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(plusButtonTapped)))
+        
         return imageView
     }()
     
@@ -74,11 +75,31 @@ class TopicsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureNavigationBar()
         viewModel.viewWasLoaded()
     }
     
     @objc func plusButtonTapped() {
         viewModel.plusButtonTapped()
+    }
+    
+    @objc func serachButtonTapped() {
+        // TODO
+    }
+    
+    private func configureNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let addIcon = UIImage(named: "icoAdd")?.withRenderingMode(.alwaysTemplate)
+        let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: addIcon, style: .plain, target: self, action: #selector(plusButtonTapped))
+        leftBarButtonItem.tintColor = .orangeKCPumpkin
+        navigationItem.leftBarButtonItem = leftBarButtonItem
+        
+        let serachIcon = UIImage(named: "icoSearch")?.withRenderingMode(.alwaysTemplate)
+        let rightBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: serachIcon, style: .plain, target: self, action: #selector(serachButtonTapped))
+        rightBarButtonItem.tintColor = .orangeKCPumpkin
+        navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
     fileprivate func showErrorFetchingTopicsAlert() {
