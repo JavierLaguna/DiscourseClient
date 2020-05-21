@@ -34,6 +34,8 @@
 		496E80062435201C00019B20 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496E80042435201C00019B20 /* UserCell.xib */; };
 		496E80082435207B00019B20 /* UsersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E80072435207B00019B20 /* UsersRequest.swift */; };
 		496E800A243520A500019B20 /* UserDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E8009243520A500019B20 /* UserDetailRequest.swift */; };
+		4978534224771B0D0014C5A8 /* TopicPinnedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4978534024771B0D0014C5A8 /* TopicPinnedCell.swift */; };
+		4978534324771B0D0014C5A8 /* TopicPinnedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4978534124771B0D0014C5A8 /* TopicPinnedCell.xib */; };
 		498E58EB247474DF0070A767 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 498E58EA247474DF0070A767 /* Colors.xcassets */; };
 		498E58ED2474759B0070A767 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E58EC2474759B0070A767 /* UIColor+Extensions.swift */; };
 		498E58EF24747DE80070A767 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E58EE24747DE80070A767 /* UIFont+Extensions.swift */; };
@@ -108,6 +110,8 @@
 		496E80042435201C00019B20 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		496E80072435207B00019B20 /* UsersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRequest.swift; sourceTree = "<group>"; };
 		496E8009243520A500019B20 /* UserDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailRequest.swift; sourceTree = "<group>"; };
+		4978534024771B0D0014C5A8 /* TopicPinnedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicPinnedCell.swift; sourceTree = "<group>"; };
+		4978534124771B0D0014C5A8 /* TopicPinnedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicPinnedCell.xib; sourceTree = "<group>"; };
 		498E58EA247474DF0070A767 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		498E58EC2474759B0070A767 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		498E58EE24747DE80070A767 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
@@ -196,6 +200,18 @@
 				49AC8309243A475400A7F79C /* UserDetailViewController.swift */,
 			);
 			path = UserDetail;
+			sourceTree = "<group>";
+		};
+		4978533F247719C30014C5A8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				62015CB623EF04C200673EBB /* TopicCellViewModel.swift */,
+				62015CB823EF084C00673EBB /* TopicCell.swift */,
+				62015CB923EF084C00673EBB /* TopicCell.xib */,
+				4978534024771B0D0014C5A8 /* TopicPinnedCell.swift */,
+				4978534124771B0D0014C5A8 /* TopicPinnedCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		498E58E92474749B0070A767 /* Resources */ = {
@@ -305,12 +321,10 @@
 		627DC5C123E5FED6006D8615 /* Topics */ = {
 			isa = PBXGroup;
 			children = (
+				4978533F247719C30014C5A8 /* Cells */,
 				627DC5C223E5FEE4006D8615 /* TopicsViewModel.swift */,
 				627DC5C423E5FEFD006D8615 /* TopicsViewController.swift */,
 				627DC5C723E60384006D8615 /* TopicsDataManager.swift */,
-				62015CB623EF04C200673EBB /* TopicCellViewModel.swift */,
-				62015CB823EF084C00673EBB /* TopicCell.swift */,
-				62015CB923EF084C00673EBB /* TopicCell.xib */,
 			);
 			path = Topics;
 			sourceTree = "<group>";
@@ -454,6 +468,7 @@
 				498E58EB247474DF0070A767 /* Colors.xcassets in Resources */,
 				496A9888242D3872007BE243 /* CategoryCell.xib in Resources */,
 				496E80062435201C00019B20 /* UserCell.xib in Resources */,
+				4978534324771B0D0014C5A8 /* TopicPinnedCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +510,7 @@
 				62015CD423EF21A900673EBB /* AddNewTopicResponse.swift in Sources */,
 				62015CC623EF161E00673EBB /* SingleTopicRequest.swift in Sources */,
 				62015CCE23EF1F5200673EBB /* AddTopicViewModel.swift in Sources */,
+				4978534224771B0D0014C5A8 /* TopicPinnedCell.swift in Sources */,
 				62015CDF23EF30E600673EBB /* CategoriesCoordinator.swift in Sources */,
 				496E7FFC2435195400019B20 /* UsersViewModel.swift in Sources */,
 				62015CD223EF205100673EBB /* CreateTopicRequest.swift in Sources */,
