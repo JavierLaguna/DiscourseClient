@@ -12,19 +12,19 @@
         <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="TopicCell" customModule="DiscourseClient" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="401" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="401" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zSl-z6-6tp">
-                        <rect key="frame" x="16" y="16" width="64" height="64"/>
+                        <rect key="frame" x="16" y="16" width="64" height="68"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="64" id="2Nr-vT-GZA"/>
-                            <constraint firstAttribute="height" constant="64" id="S5r-2l-VDz"/>
+                            <constraint firstAttribute="height" priority="750" constant="64" id="S5r-2l-VDz"/>
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Yuq-La-nP9">
-                        <rect key="frame" x="91" y="16" width="294" height="64"/>
+                        <rect key="frame" x="91" y="16" width="294" height="68"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Om3-jm-u9m">
                                 <rect key="frame" x="0.0" y="0.0" width="294" height="41"/>
@@ -33,7 +33,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="aNC-ib-CvZ">
-                                <rect key="frame" x="0.0" y="50" width="294" height="14"/>
+                                <rect key="frame" x="0.0" y="54" width="294" height="14"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="UXw-6H-QZy">
                                         <rect key="frame" x="0.0" y="0.0" width="41.5" height="14"/>
@@ -104,6 +104,7 @@
                     <constraint firstItem="zSl-z6-6tp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="xri-S3-Fbf"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" name="WhiteKCBackground"/>
             <connections>
                 <outlet property="lastPostLabel" destination="QgH-a4-Haa" id="1Kh-CF-L7Z"/>
                 <outlet property="lastPosterImage" destination="zSl-z6-6tp" id="6U9-4V-bi5"/>
@@ -123,6 +124,9 @@
         </namedColor>
         <namedColor name="GrayKC">
             <color red="0.047058823529411764" green="0.047058823529411764" blue="0.047058823529411764" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="WhiteKCBackground">
+            <color red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

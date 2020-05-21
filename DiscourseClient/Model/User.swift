@@ -36,20 +36,23 @@ struct User: Codable {
     }
     
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        let rootUser = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .userKey)
+        var container = try decoder.container(keyedBy: CodingKeys.self)
         
-        id = try rootUser.decode(Int.self, forKey: .id)
-        username = try rootUser.decode(String.self, forKey: .username)
-        avatarTemplate = try rootUser.decode(String.self, forKey: .avatarTemplate)
-        email = try rootUser.decodeIfPresent(String.self, forKey: .email)
-        name = try rootUser.decodeIfPresent(String.self, forKey: .name)
-        canEdit = try rootUser.decodeIfPresent(Bool.self, forKey: .canEdit)
-        canEditUsername = try rootUser.decodeIfPresent(Bool.self, forKey: .canEditUsername)
-        canEditEmail = try rootUser.decodeIfPresent(Bool.self, forKey: .canEditEmail)
-        canEditName = try rootUser.decodeIfPresent(Bool.self, forKey: .canEditName)
-        ignored = try rootUser.decodeIfPresent(Bool.self, forKey: .ignored)
-        muted = try rootUser.decodeIfPresent(Bool.self, forKey: .muted)
+        if let rootUser = try? container.nestedContainer(keyedBy: CodingKeys.self, forKey: .userKey) {
+            container = rootUser
+        }
+        
+        id = try container.decode(Int.self, forKey: .id)
+        username = try container.decode(String.self, forKey: .username)
+        avatarTemplate = try container.decode(String.self, forKey: .avatarTemplate)
+        email = try container.decodeIfPresent(String.self, forKey: .email)
+        name = try container.decodeIfPresent(String.self, forKey: .name)
+        canEdit = try container.decodeIfPresent(Bool.self, forKey: .canEdit)
+        canEditUsername = try container.decodeIfPresent(Bool.self, forKey: .canEditUsername)
+        canEditEmail = try container.decodeIfPresent(Bool.self, forKey: .canEditEmail)
+        canEditName = try container.decodeIfPresent(Bool.self, forKey: .canEditName)
+        ignored = try container.decodeIfPresent(Bool.self, forKey: .ignored)
+        muted = try container.decodeIfPresent(Bool.self, forKey: .muted)
     }
     
     func encode(to encoder: Encoder) throws {

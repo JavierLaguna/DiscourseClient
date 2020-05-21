@@ -6,18 +6,36 @@
 //  Copyright © 2020 Roberto Garrido. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol TopicCellViewModelDelegate: class {
+    func userImageFetched()
+}
 
 /// ViewModel que representa un topic en la lista
 class TopicCellViewModel {
+    
+    // MARK: Constants
+    static let imageSize = 100
     let topic: Topic
+    let lastPoster: User
+    
+    // MARK: Variables
+    weak var delegate: TopicCellViewModelDelegate?
     var textLabelText: String?
     var postsCount: String?
     var postersCount: String?
     var lastPostDate: String?
+    var lastPosterImage: UIImage? {
+        didSet {
+            delegate?.userImageFetched()
+        }
+    }
     
-    init(topic: Topic) {
+    init(topic: Topic, lastPoster: User) {
         self.topic = topic
+        self.lastPoster = lastPoster
+        
         self.textLabelText = topic.title
         self.postsCount = "\(topic.postsCount)"
         self.postersCount = "\(topic.posters.count)"
@@ -32,15 +50,16 @@ class TopicCellViewModel {
             self.lastPostDate = formatter.string(from: lastPostDate).capitalized
         }
         
-//        if let avatarURL = viewModel.imageUrl {
-//                       DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-//                           guard let data = try? Data(contentsOf: avatarURL),
-//                               let image = UIImage(data: data) else { return }
-//
-//                           DispatchQueue.main.async {
-//                               self?.avatarImage.image = image
-//                           }
-//                       }
-//                   }
+        let avatarUrl: String = lastPoster.avatarTemplate.replacingOccurrences(of: "{size}", with: "\(TopicCellViewModel.imageSize)")
+        if let imageUrl = URL(string: "\(apiURL)\(avatarUrl)") {
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                guard let data = try? Data(contentsOf: imageUrl),
+                    let image = UIImage(data: data) else { return }
+                
+                DispatchQueue.main.async {
+                    self?.lastPosterImage = image
+                }
+            }
+        }
     }
 }

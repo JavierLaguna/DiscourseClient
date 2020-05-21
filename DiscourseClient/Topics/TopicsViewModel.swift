@@ -45,8 +45,15 @@ class TopicsViewModel {
             
             switch result {
             case .success(let topicsResp):
-                guard let topics = topicsResp?.topics else { return }
-                self.topicViewModels = topics.map { TopicCellViewModel(topic: $0) }
+                guard let topics = topicsResp?.topics, let users = topicsResp?.users else { return }
+                
+                self.topicViewModels = topics.compactMap { topic in
+                    guard let lastPoster = users.first(where: {$0.username == topic.lastPosterUsername}) else {
+                        return nil
+                    }
+                    
+                    return TopicCellViewModel(topic: topic, lastPoster: lastPoster)
+                }
                 
                 self.viewDelegate?.topicsFetched()
                 

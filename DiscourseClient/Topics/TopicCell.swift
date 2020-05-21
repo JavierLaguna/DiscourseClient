@@ -26,6 +26,9 @@ class TopicCell: UITableViewCell {
             postCountLabel.text = viewModel.postsCount
             posterCountLabel.text = viewModel.postersCount
             lastPostLabel.text = viewModel.lastPostDate
+            lastPosterImage.image = viewModel.lastPosterImage
+            
+            viewModel.delegate = self
         }
     }
     
@@ -36,6 +39,12 @@ class TopicCell: UITableViewCell {
         configureUI()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        lastPosterImage.image = nil
+    }
+    
     // MARK: Private Functions
     private func configureUI() {
         lastPosterImage.layer.cornerRadius = lastPosterImage.frame.height / 2
@@ -44,5 +53,14 @@ class TopicCell: UITableViewCell {
         postCountLabel.font = UIFont.cellDetail
         posterCountLabel.font = UIFont.cellDetail
         lastPostLabel.font = UIFont.cellDetailBold
+    }
+}
+
+// MARK: TopicCellViewModelDelegate
+extension TopicCell: TopicCellViewModelDelegate {
+    
+    func userImageFetched() {
+        lastPosterImage.image = viewModel?.lastPosterImage
+        setNeedsLayout()
     }
 }
