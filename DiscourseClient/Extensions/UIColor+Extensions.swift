@@ -14,4 +14,5 @@ extension UIColor {
     static let orangeKCPumpkin = UIColor(named: "OrangeKCPumpkin") ?? UIColor.orange
     static let orangeKCTangerine = UIColor(named: "OrangeKCTangerine") ?? UIColor.yellow
     static let whiteKCBackground = UIColor(named: "WhiteKCBackground") ?? UIColor.white
+    static let whiteKCTabBar = UIColor(named: "WhiteKCTabBar") ?? UIColor.white
 }

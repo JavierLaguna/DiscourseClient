@@ -44,11 +44,6 @@ class AppCoordinator: Coordinator {
         addChildCoordinator(topicsCoordinator)
         topicsCoordinator.start()
         
-        let categoriesNavigationController = UINavigationController()
-        let categoriesCoordinator = CategoriesCoordinator(presenter: categoriesNavigationController, categoriesDataManager: dataManager)
-        addChildCoordinator(categoriesCoordinator)
-        categoriesCoordinator.start()
-        
         let usersNavigationController = UINavigationController()
         let usersCoordinator = UsersCoordinator(presenter: usersNavigationController,
                                                 usersDataManager: dataManager,
@@ -56,13 +51,25 @@ class AppCoordinator: Coordinator {
         addChildCoordinator(usersCoordinator)
         usersCoordinator.start()
         
-        tabBarController.tabBar.tintColor = .black
+        let categoriesNavigationController = UINavigationController()
+        let categoriesCoordinator = CategoriesCoordinator(presenter: categoriesNavigationController, categoriesDataManager: dataManager)
+        addChildCoordinator(categoriesCoordinator)
+        categoriesCoordinator.start()
         
-        tabBarController.viewControllers = [topicsNavigationController, categoriesNavigationController, usersNavigationController]
-        tabBarController.tabBar.items?.first?.image = UIImage(systemName: "list.dash")
-        tabBarController.tabBar.items?[1].image = UIImage(systemName: "tag")
-        tabBarController.tabBar.items?[2].image = UIImage(systemName: "person.3.fill")
+        let settingsVC = UIViewController()
+        settingsVC.title = "Settings"
         
+        tabBarController.tabBar.tintColor = .orangeKCTangerine
+        tabBarController.tabBar.unselectedItemTintColor = .blackKC
+        tabBarController.tabBar.backgroundColor = .whiteKCTabBar
+        tabBarController.tabBar.alpha = 0.9
+        
+        tabBarController.viewControllers = [topicsNavigationController, usersNavigationController, categoriesNavigationController, settingsVC]
+        tabBarController.tabBar.items?.first?.image = UIImage(named: "inicio")?.withRenderingMode(.alwaysTemplate)
+        tabBarController.tabBar.items?[1].image = UIImage(named: "usuarios")?.withRenderingMode(.alwaysTemplate)
+        tabBarController.tabBar.items?[2].image = UIImage(systemName: "paperplane.fill")
+        tabBarController.tabBar.items?[3].image = UIImage(named: "ajustes")?.withRenderingMode(.alwaysTemplate)
+
         window.rootViewController = tabBarController
         window.makeKeyAndVisible()
     }
