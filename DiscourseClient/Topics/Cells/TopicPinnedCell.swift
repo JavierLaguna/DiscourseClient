@@ -22,7 +22,7 @@ class TopicPinnedCell: UITableViewCell {
     
     private func configureUI() {
         containerView.layer.cornerRadius = 8
-        titleLabel.font = .bigTitle
-        subtitleLabel.font = .paragraph
+        titleLabel.font = UIFont.bigTitle
+        subtitleLabel.font = UIFont.paragraph
     }
 }

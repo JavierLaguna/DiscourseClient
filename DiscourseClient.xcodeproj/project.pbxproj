@@ -43,7 +43,9 @@
 		49AC830A243A475400A7F79C /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC8309243A475400A7F79C /* UserDetailViewController.swift */; };
 		49AC830C243A663900A7F79C /* UpdateNameUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC830B243A663900A7F79C /* UpdateNameUserRequest.swift */; };
 		49AC830E243A66BF00A7F79C /* UpdateNameUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC830D243A66BF00A7F79C /* UpdateNameUserResponse.swift */; };
-		62015CB723EF04C200673EBB /* TopicCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62015CB623EF04C200673EBB /* TopicCellViewModel.swift */; };
+		49EC1E17247729600017772A /* TopicCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC1E16247729600017772A /* TopicCellViewModel.swift */; };
+		49EC1E192477299F0017772A /* TopicPinnedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC1E182477299F0017772A /* TopicPinnedCellViewModel.swift */; };
+		62015CB723EF04C200673EBB /* TopicPostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62015CB623EF04C200673EBB /* TopicPostCellViewModel.swift */; };
 		62015CBA23EF084C00673EBB /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62015CB823EF084C00673EBB /* TopicCell.swift */; };
 		62015CBB23EF084C00673EBB /* TopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62015CB923EF084C00673EBB /* TopicCell.xib */; };
 		62015CBD23EF0C6700673EBB /* TopicsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62015CBC23EF0C6700673EBB /* TopicsCoordinator.swift */; };
@@ -119,7 +121,9 @@
 		49AC8309243A475400A7F79C /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		49AC830B243A663900A7F79C /* UpdateNameUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNameUserRequest.swift; sourceTree = "<group>"; };
 		49AC830D243A66BF00A7F79C /* UpdateNameUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNameUserResponse.swift; sourceTree = "<group>"; };
-		62015CB623EF04C200673EBB /* TopicCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCellViewModel.swift; sourceTree = "<group>"; };
+		49EC1E16247729600017772A /* TopicCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCellViewModel.swift; sourceTree = "<group>"; };
+		49EC1E182477299F0017772A /* TopicPinnedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicPinnedCellViewModel.swift; sourceTree = "<group>"; };
+		62015CB623EF04C200673EBB /* TopicPostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicPostCellViewModel.swift; sourceTree = "<group>"; };
 		62015CB823EF084C00673EBB /* TopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 		62015CB923EF084C00673EBB /* TopicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicCell.xib; sourceTree = "<group>"; };
 		62015CBC23EF0C6700673EBB /* TopicsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsCoordinator.swift; sourceTree = "<group>"; };
@@ -205,11 +209,13 @@
 		4978533F247719C30014C5A8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				62015CB623EF04C200673EBB /* TopicCellViewModel.swift */,
 				62015CB823EF084C00673EBB /* TopicCell.swift */,
 				62015CB923EF084C00673EBB /* TopicCell.xib */,
+				49EC1E16247729600017772A /* TopicCellViewModel.swift */,
 				4978534024771B0D0014C5A8 /* TopicPinnedCell.swift */,
 				4978534124771B0D0014C5A8 /* TopicPinnedCell.xib */,
+				49EC1E182477299F0017772A /* TopicPinnedCellViewModel.swift */,
+				62015CB623EF04C200673EBB /* TopicPostCellViewModel.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -486,6 +492,7 @@
 				496A987A242BF15E007BE243 /* Log.swift in Sources */,
 				496E7FEF24350E6C00019B20 /* UsersCoordinator.swift in Sources */,
 				627DC5C323E5FEE4006D8615 /* TopicsViewModel.swift in Sources */,
+				49EC1E17247729600017772A /* TopicCellViewModel.swift in Sources */,
 				496E800A243520A500019B20 /* UserDetailRequest.swift in Sources */,
 				62015CC023EF0F8100673EBB /* TopicDetailViewModel.swift in Sources */,
 				62015CC823EF162D00673EBB /* SingleTopicResponse.swift in Sources */,
@@ -516,6 +523,7 @@
 				62015CD223EF205100673EBB /* CreateTopicRequest.swift in Sources */,
 				62015CC223EF0FA000673EBB /* TopicDetailViewController.swift in Sources */,
 				496E800024351A8800019B20 /* UserCellViewModel.swift in Sources */,
+				49EC1E192477299F0017772A /* TopicPinnedCellViewModel.swift in Sources */,
 				496E7FF22435173F00019B20 /* UsersDataManager.swift in Sources */,
 				62015CDD23EF302900673EBB /* CategoriesViewController.swift in Sources */,
 				496A9875242BEA67007BE243 /* DeleteTopicRequest.swift in Sources */,
@@ -534,7 +542,7 @@
 				496E800224351E8000019B20 /* UsersViewController.swift in Sources */,
 				627DC5A923E5F580006D8615 /* AppDelegate.swift in Sources */,
 				496A9884242D3298007BE243 /* CategoryCellViewModel.swift in Sources */,
-				62015CB723EF04C200673EBB /* TopicCellViewModel.swift in Sources */,
+				62015CB723EF04C200673EBB /* TopicPostCellViewModel.swift in Sources */,
 				627DC5D823E60727006D8615 /* SessionAPI.swift in Sources */,
 				627DC5D123E604E7006D8615 /* DiscourseClientLocalDataManager.swift in Sources */,
 				627DC5AB23E5F580006D8615 /* SceneDelegate.swift in Sources */,

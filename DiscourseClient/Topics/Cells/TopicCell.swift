@@ -18,7 +18,7 @@ class TopicCell: UITableViewCell {
     @IBOutlet weak private var posterCountLabel: UILabel!
     @IBOutlet weak private var lastPostLabel: UILabel!
     
-    var viewModel: TopicCellViewModel? {
+    var viewModel: TopicPostCellViewModel? {
         didSet {
             guard let viewModel = viewModel else { return }
             
@@ -57,7 +57,7 @@ class TopicCell: UITableViewCell {
 }
 
 // MARK: TopicCellViewModelDelegate
-extension TopicCell: TopicCellViewModelDelegate {
+extension TopicCell: TopicPostCellViewModelDelegate {
     
     func userImageFetched() {
         lastPosterImage.image = viewModel?.lastPosterImage

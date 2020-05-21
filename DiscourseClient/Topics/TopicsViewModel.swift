@@ -52,8 +52,10 @@ class TopicsViewModel {
                         return nil
                     }
                     
-                    return TopicCellViewModel(topic: topic, lastPoster: lastPoster)
+                    return TopicPostCellViewModel(topic: topic, lastPoster: lastPoster)
                 }
+                
+                self.topicViewModels.insert(TopicPinnedCellViewModel(), at: 0)
                 
                 self.viewDelegate?.topicsFetched()
                 
@@ -78,8 +80,11 @@ class TopicsViewModel {
     }
     
     func didSelectRow(at indexPath: IndexPath) {
-        guard indexPath.row < topicViewModels.count else { return }
-        coordinatorDelegate?.didSelect(topic: topicViewModels[indexPath.row].topic)
+        guard indexPath.row < topicViewModels.count, let topicVM = topicViewModels[indexPath.row] as? TopicPostCellViewModel else {
+            return
+        }
+        
+        coordinatorDelegate?.didSelect(topic: topicVM.topic)
     }
     
     func plusButtonTapped() {

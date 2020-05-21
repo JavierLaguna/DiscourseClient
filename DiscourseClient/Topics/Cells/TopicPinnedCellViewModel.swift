@@ -1,5 +1,5 @@
 //
-//  TopicCellViewModel.swift
+//  TopicPinnedCellViewModel.swift
 //  DiscourseClient
 //
 //  Created by Javier Laguna on 21/05/2020.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol TopicCellViewModel {
+class TopicPinnedCellViewModel: TopicCellViewModel {
     
 }
