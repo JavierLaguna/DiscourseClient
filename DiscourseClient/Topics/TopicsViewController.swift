@@ -41,6 +41,8 @@ class TopicsViewController: UIViewController {
             }
         }
     }
+    lazy var searchBar = UISearchBar()
+
 
     init(viewModel: TopicsViewModel) {
         self.viewModel = viewModel
@@ -77,6 +79,7 @@ class TopicsViewController: UIViewController {
         super.viewDidLoad()
         
         configureNavigationBar()
+        configureSearchBar()
         viewModel.viewWasLoaded()
     }
     
@@ -84,20 +87,36 @@ class TopicsViewController: UIViewController {
         viewModel.plusButtonTapped()
     }
     
-    @objc func serachButtonTapped() {
-        // TODO
+    @objc private func enableSearchBar() {
+        navigationItem.leftBarButtonItems = nil
+        navigationItem.rightBarButtonItems = nil
+        searchBar.text = ""
+        navigationItem.titleView = searchBar
+        searchBar.becomeFirstResponder()
     }
     
-    private func configureNavigationBar() {
-        navigationController?.navigationBar.prefersLargeTitles = true
+    private func configureSearchBar() {
+        searchBar.delegate = self
+        searchBar.showsCancelButton = true
+        searchBar.tintColor = .orangeKCPumpkin
         
+        let textFieldInsideUISearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideUISearchBar?.textColor = .blackKC
+        searchBar.setImage(UIImage(), for: .search, state: .normal)
+    }
+
+    private func configureNavigationBar() {
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.titleView = nil
+
         let addIcon = UIImage(named: "icoAdd")?.withRenderingMode(.alwaysTemplate)
         let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: addIcon, style: .plain, target: self, action: #selector(plusButtonTapped))
         leftBarButtonItem.tintColor = .orangeKCPumpkin
         navigationItem.leftBarButtonItem = leftBarButtonItem
         
         let serachIcon = UIImage(named: "icoSearch")?.withRenderingMode(.alwaysTemplate)
-        let rightBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: serachIcon, style: .plain, target: self, action: #selector(serachButtonTapped))
+        let rightBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: serachIcon, style: .plain, target: self, action: #selector(enableSearchBar))
         rightBarButtonItem.tintColor = .orangeKCPumpkin
         navigationItem.rightBarButtonItem = rightBarButtonItem
     }
@@ -119,6 +138,10 @@ class TopicsViewController: UIViewController {
                 self.view.layoutIfNeeded()
             })
         }
+    }
+    
+    private func searchTopics(by text: String?) {
+        // TODO implement topic search
     }
 }
 
@@ -175,5 +198,28 @@ extension TopicsViewController: TopicsViewDelegate {
     
     func errorFetchingTopics() {
         showErrorFetchingTopicsAlert()
+    }
+}
+
+// MARK: UISearchBarDelegate
+extension TopicsViewController: UISearchBarDelegate {
+    
+    func cancelSearchFilter() {
+        searchTopics(by: nil)
+        searchBar.endEditing(true)
+        configureNavigationBar()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchTopics(by: searchText)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        cancelSearchFilter()
+        searchBar.text = ""
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
     }
 }
