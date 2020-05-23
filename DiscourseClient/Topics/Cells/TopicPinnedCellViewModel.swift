@@ -8,6 +8,4 @@
 
 import Foundation
 
-class TopicPinnedCellViewModel: TopicCellViewModel {
-    
-}
+class TopicPinnedCellViewModel: TopicCellViewModel {}

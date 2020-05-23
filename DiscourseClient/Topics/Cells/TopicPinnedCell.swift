@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TopicPinnedCell: UITableViewCell {
+class TopicPinnedCell: UITableViewCell, NibLoadableView, ReusableView  {
 
     @IBOutlet weak private var containerView: UIView!
     @IBOutlet weak private var titleLabel: UILabel!

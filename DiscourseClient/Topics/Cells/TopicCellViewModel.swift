@@ -6,8 +6,6 @@
 //  Copyright © 2020 Roberto Garrido. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-protocol TopicCellViewModel {
-    
-}
+protocol TopicCellViewModel {}

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4900D684247974D100BD7ECE /* UIView+NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4900D683247974D100BD7ECE /* UIView+NibLoadableView.swift */; };
+		4900D686247974FB00BD7ECE /* UIView+ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4900D685247974FB00BD7ECE /* UIView+ReusableView.swift */; };
 		491B4E0E243658F400103501 /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491B4E0D243658F400103501 /* Period.swift */; };
 		491B4E102436594600103501 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491B4E0F2436594600103501 /* Order.swift */; };
 		496A9871242AA0C0007BE243 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A9870242AA0C0007BE243 /* Topic.swift */; };
@@ -85,6 +87,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4900D683247974D100BD7ECE /* UIView+NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoadableView.swift"; sourceTree = "<group>"; };
+		4900D685247974FB00BD7ECE /* UIView+ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ReusableView.swift"; sourceTree = "<group>"; };
 		491B4E0D243658F400103501 /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		491B4E0F2436594600103501 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		496A9870242AA0C0007BE243 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
@@ -242,9 +246,11 @@
 		62015CC923EF19E600673EBB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				62015CCA23EF19F500673EBB /* UIViewController+Extensions.swift */,
 				498E58EC2474759B0070A767 /* UIColor+Extensions.swift */,
 				498E58EE24747DE80070A767 /* UIFont+Extensions.swift */,
+				4900D683247974D100BD7ECE /* UIView+NibLoadableView.swift */,
+				4900D685247974FB00BD7ECE /* UIView+ReusableView.swift */,
+				62015CCA23EF19F500673EBB /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -499,6 +505,7 @@
 				496A987E242D2DBD007BE243 /* CategoriesResponse.swift in Sources */,
 				496E7FF92435189000019B20 /* UserDetailResponse.swift in Sources */,
 				62015CC423EF14FC00673EBB /* TopicDetailDataManager.swift in Sources */,
+				4900D684247974D100BD7ECE /* UIView+NibLoadableView.swift in Sources */,
 				49AC830E243A66BF00A7F79C /* UpdateNameUserResponse.swift in Sources */,
 				496A9871242AA0C0007BE243 /* Topic.swift in Sources */,
 				62015CDB23EF301300673EBB /* CategoriesViewModel.swift in Sources */,
@@ -520,6 +527,7 @@
 				4978534224771B0D0014C5A8 /* TopicPinnedCell.swift in Sources */,
 				62015CDF23EF30E600673EBB /* CategoriesCoordinator.swift in Sources */,
 				496E7FFC2435195400019B20 /* UsersViewModel.swift in Sources */,
+				4900D686247974FB00BD7ECE /* UIView+ReusableView.swift in Sources */,
 				62015CD223EF205100673EBB /* CreateTopicRequest.swift in Sources */,
 				62015CC223EF0FA000673EBB /* TopicDetailViewController.swift in Sources */,
 				496E800024351A8800019B20 /* UserCellViewModel.swift in Sources */,

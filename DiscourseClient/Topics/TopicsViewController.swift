@@ -16,8 +16,8 @@ class TopicsViewController: UIViewController {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.dataSource = self
         table.delegate = self
-        table.register(UINib(nibName: "TopicPinnedCell", bundle: nil), forCellReuseIdentifier: "TopicPinnedCell")
-        table.register(UINib(nibName: "TopicCell", bundle: nil), forCellReuseIdentifier: "TopicCell")
+        table.register(UINib(nibName: TopicPinnedCell.nibName, bundle: nil), forCellReuseIdentifier: TopicPinnedCell.defaultReuseIdentifier)
+        table.register(UINib(nibName: TopicCell.nibName, bundle: nil), forCellReuseIdentifier: TopicCell.defaultReuseIdentifier)
         return table
     }()
     
@@ -156,13 +156,13 @@ extension TopicsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "TopicCell", for: indexPath) as? TopicCell,
+        if let cell = tableView.dequeueReusableCell(withIdentifier: TopicCell.defaultReuseIdentifier, for: indexPath) as? TopicCell,
             let cellViewModel = viewModel.viewModel(at: indexPath) as? TopicPostCellViewModel {
             cell.viewModel = cellViewModel
             return cell
         }
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "TopicPinnedCell", for: indexPath) as? TopicPinnedCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: TopicPinnedCell.defaultReuseIdentifier, for: indexPath) as? TopicPinnedCell {
             
             return cell
         }
