@@ -34,6 +34,13 @@ class AppCoordinator: Coordinator {
     }
     
     override func start() {
+        let splashVc = SplashViewController()
+
+        window.rootViewController = splashVc
+        window.makeKeyAndVisible()
+    }
+    
+    private func startApp() {
         let tabBarController = UITabBarController()
         
         let topicsNavigationController = UINavigationController()

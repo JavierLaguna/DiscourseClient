@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "627DC5A423E5F580006D8615"
-               BuildableName = "DiscourseClient.app"
+               BuildableName = "eh.ho.app"
                BlueprintName = "DiscourseClient"
                ReferencedContainer = "container:DiscourseClient.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "627DC5A423E5F580006D8615"
-            BuildableName = "DiscourseClient.app"
+            BuildableName = "eh.ho.app"
             BlueprintName = "DiscourseClient"
             ReferencedContainer = "container:DiscourseClient.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "627DC5A423E5F580006D8615"
-            BuildableName = "DiscourseClient.app"
+            BuildableName = "eh.ho.app"
             BlueprintName = "DiscourseClient"
             ReferencedContainer = "container:DiscourseClient.xcodeproj">
          </BuildableReference>

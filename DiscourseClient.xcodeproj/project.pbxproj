@@ -11,6 +11,7 @@
 		4900D686247974FB00BD7ECE /* UIView+ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4900D685247974FB00BD7ECE /* UIView+ReusableView.swift */; };
 		491B4E0E243658F400103501 /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491B4E0D243658F400103501 /* Period.swift */; };
 		491B4E102436594600103501 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491B4E0F2436594600103501 /* Order.swift */; };
+		4929F091247A8A6200C0E10D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4929F090247A8A6200C0E10D /* SplashViewController.swift */; };
 		496A9871242AA0C0007BE243 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A9870242AA0C0007BE243 /* Topic.swift */; };
 		496A9873242AA0F0007BE243 /* TopicDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A9872242AA0F0007BE243 /* TopicDetails.swift */; };
 		496A9875242BEA67007BE243 /* DeleteTopicRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A9874242BEA67007BE243 /* DeleteTopicRequest.swift */; };
@@ -91,6 +92,7 @@
 		4900D685247974FB00BD7ECE /* UIView+ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ReusableView.swift"; sourceTree = "<group>"; };
 		491B4E0D243658F400103501 /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		491B4E0F2436594600103501 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		4929F090247A8A6200C0E10D /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		496A9870242AA0C0007BE243 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		496A9872242AA0F0007BE243 /* TopicDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicDetails.swift; sourceTree = "<group>"; };
 		496A9874242BEA67007BE243 /* DeleteTopicRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTopicRequest.swift; sourceTree = "<group>"; };
@@ -179,6 +181,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4929F08E247A89BF00C0E10D /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				4929F08F247A8A3C00C0E10D /* Splash */,
+				62015CCC23EF1F4200673EBB /* AddTopic */,
+				62015CD923EF300200673EBB /* Categories */,
+				62015CBE23EF0F6C00673EBB /* TopicDetail */,
+				627DC5C123E5FED6006D8615 /* Topics */,
+				496E7FF52435182F00019B20 /* UserDetail */,
+				496E7FF0243515A700019B20 /* Users */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		4929F08F247A8A3C00C0E10D /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				4929F090247A8A6200C0E10D /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		496A9878242BF151007BE243 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,37 +329,32 @@
 		627DC5A723E5F580006D8615 /* DiscourseClient */ = {
 			isa = PBXGroup;
 			children = (
-				498E58E92474749B0070A767 /* Resources */,
-				62015CCC23EF1F4200673EBB /* AddTopic */,
-				62015CD923EF300200673EBB /* Categories */,
-				627DC5BC23E5F775006D8615 /* Coordinator */,
+				627DC5BC23E5F775006D8615 /* Coordinators */,
 				627DC5C623E6036F006D8615 /* DataManager */,
 				62015CC923EF19E600673EBB /* Extensions */,
 				627DC5C923E603A9006D8615 /* Model */,
-				62015CBE23EF0F6C00673EBB /* TopicDetail */,
-				627DC5C123E5FED6006D8615 /* Topics */,
-				496E7FF0243515A700019B20 /* Users */,
-				496E7FF52435182F00019B20 /* UserDetail */,
+				498E58E92474749B0070A767 /* Resources */,
+				4929F08E247A89BF00C0E10D /* Scenes */,
 				496A9878242BF151007BE243 /* Utils */,
-				627DC5B623E5F581006D8615 /* Info.plist */,
-				627DC5B323E5F581006D8615 /* LaunchScreen.storyboard */,
 				627DC5A823E5F580006D8615 /* AppDelegate.swift */,
-				62015CD723EF26C900673EBB /* AddTopicCoordinator.swift */,
-				627DC5BF23E5F7B3006D8615 /* AppCoordinator.swift */,
-				62015CDE23EF30E600673EBB /* CategoriesCoordinator.swift */,
 				627DC5AA23E5F580006D8615 /* SceneDelegate.swift */,
-				62015CBC23EF0C6700673EBB /* TopicsCoordinator.swift */,
-				496E7FEE24350E6C00019B20 /* UsersCoordinator.swift */,
+				627DC5B323E5F581006D8615 /* LaunchScreen.storyboard */,
+				627DC5B623E5F581006D8615 /* Info.plist */,
 			);
 			path = DiscourseClient;
 			sourceTree = "<group>";
 		};
-		627DC5BC23E5F775006D8615 /* Coordinator */ = {
+		627DC5BC23E5F775006D8615 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
 				627DC5BD23E5F7A0006D8615 /* Coordinator.swift */,
+				62015CD723EF26C900673EBB /* AddTopicCoordinator.swift */,
+				627DC5BF23E5F7B3006D8615 /* AppCoordinator.swift */,
+				62015CDE23EF30E600673EBB /* CategoriesCoordinator.swift */,
+				62015CBC23EF0C6700673EBB /* TopicsCoordinator.swift */,
+				496E7FEE24350E6C00019B20 /* UsersCoordinator.swift */,
 			);
-			path = Coordinator;
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		627DC5C123E5FED6006D8615 /* Topics */ = {
@@ -353,8 +372,8 @@
 			isa = PBXGroup;
 			children = (
 				627DC5CC23E6048A006D8615 /* DiscourseClientDataManager.swift */,
-				627DC5D423E60709006D8615 /* Remote */,
 				627DC5D523E60711006D8615 /* Local */,
+				627DC5D423E60709006D8615 /* Remote */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -557,6 +576,7 @@
 				496A9877242BEACF007BE243 /* DeleteTopicResponse.swift in Sources */,
 				62015CD023EF1F6800673EBB /* AddTopicViewController.swift in Sources */,
 				496E800224351E8000019B20 /* UsersViewController.swift in Sources */,
+				4929F091247A8A6200C0E10D /* SplashViewController.swift in Sources */,
 				627DC5A923E5F580006D8615 /* AppDelegate.swift in Sources */,
 				496A9884242D3298007BE243 /* CategoryCellViewModel.swift in Sources */,
 				62015CB723EF04C200673EBB /* TopicPostCellViewModel.swift in Sources */,
@@ -636,6 +656,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = DiscourseClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -690,6 +711,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = DiscourseClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
