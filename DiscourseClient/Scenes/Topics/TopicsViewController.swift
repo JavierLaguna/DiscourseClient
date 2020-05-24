@@ -151,7 +151,7 @@ class TopicsViewController: UIViewController {
     }
     
     private func searchTopics(by text: String?) {
-        // TODO implement topic search
+        viewModel.searchText = text
     }
 }
 

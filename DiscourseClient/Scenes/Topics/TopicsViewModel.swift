@@ -26,6 +26,24 @@ class TopicsViewModel {
     weak var viewDelegate: TopicsViewDelegate?
     let topicsDataManager: TopicsDataManager
     var topicViewModels: [TopicCellViewModel] = []
+    var searchText: String? {
+        didSet {
+            if searchText != oldValue {
+                viewDelegate?.topicsFetched()
+            }
+        }
+    }
+    var filteredTopics: [TopicCellViewModel] {
+        guard let searchText = searchText, !searchText.isEmpty else { return topicViewModels }
+        
+        return topicViewModels.filter { topic in
+            guard let topic = topic as? TopicPostCellViewModel else {
+                return true
+            }
+            
+            return topic.textLabelText?.contains(searchText) ?? false
+        }
+    }
     
     init(topicsDataManager: TopicsDataManager) {
         self.topicsDataManager = topicsDataManager
@@ -71,16 +89,16 @@ class TopicsViewModel {
     }
     
     func numberOfRows(in section: Int) -> Int {
-        return topicViewModels.count
+        return filteredTopics.count
     }
     
     func viewModel(at indexPath: IndexPath) -> TopicCellViewModel? {
-        guard indexPath.row < topicViewModels.count else { return nil }
-        return topicViewModels[indexPath.row]
+        guard indexPath.row < filteredTopics.count else { return nil }
+        return filteredTopics[indexPath.row]
     }
     
     func didSelectRow(at indexPath: IndexPath) {
-        guard indexPath.row < topicViewModels.count, let topicVM = topicViewModels[indexPath.row] as? TopicPostCellViewModel else {
+        guard indexPath.row < filteredTopics.count, let topicVM = filteredTopics[indexPath.row] as? TopicPostCellViewModel else {
             return
         }
         

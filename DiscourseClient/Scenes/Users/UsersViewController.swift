@@ -124,7 +124,7 @@ class UsersViewController: UIViewController {
     }
     
     private func searchUsers(by text: String?) {
-        // TODO implement topic search
+        viewModel.searchText = text
     }
 }
 
