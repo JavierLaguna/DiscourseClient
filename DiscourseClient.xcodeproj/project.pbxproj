@@ -146,7 +146,7 @@
 		62015CDA23EF301300673EBB /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
 		62015CDC23EF302900673EBB /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		62015CDE23EF30E600673EBB /* CategoriesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCoordinator.swift; sourceTree = "<group>"; };
-		627DC5A523E5F580006D8615 /* DiscourseClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiscourseClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		627DC5A523E5F580006D8615 /* eh.ho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eh.ho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		627DC5A823E5F580006D8615 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		627DC5AA23E5F580006D8615 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		627DC5B123E5F581006D8615 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -297,7 +297,7 @@
 		627DC5A623E5F580006D8615 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				627DC5A523E5F580006D8615 /* DiscourseClient.app */,
+				627DC5A523E5F580006D8615 /* eh.ho.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -441,7 +441,7 @@
 			);
 			name = DiscourseClient;
 			productName = DiscourseClient;
-			productReference = 627DC5A523E5F580006D8615 /* DiscourseClient.app */;
+			productReference = 627DC5A523E5F580006D8615 /* eh.ho.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -712,8 +712,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.irakai.DiscourseClient;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.javierlaguna.DiscourseClient;
+				PRODUCT_NAME = eh.ho;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -731,8 +731,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.irakai.DiscourseClient;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.javierlaguna.DiscourseClient;
+				PRODUCT_NAME = eh.ho;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
