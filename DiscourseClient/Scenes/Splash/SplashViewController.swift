@@ -10,11 +10,44 @@ import UIKit
 
 class SplashViewController: UIViewController {
     
+    // MARK: Variables
+    lazy var ehLabel: UILabel = {
+        let ehLabel = UILabel()
+        ehLabel.translatesAutoresizingMaskIntoConstraints = false
+        ehLabel.text = "eh"
+        ehLabel.font = .logo
+        ehLabel.textColor = .white
+        return ehLabel
+    }()
+    
+    lazy var ohLabel: UILabel = {
+        let ohLabel = UILabel()
+        ohLabel.translatesAutoresizingMaskIntoConstraints = false
+        ohLabel.text = "oh"
+        ohLabel.font = .logo
+        ohLabel.textColor = .white
+        return ohLabel
+    }()
+    
+    lazy var logoImage: UIImageView = {
+        let logoImage = UIImageView(frame: CGRect(x: view.center.x - 50, y: 0, width: 100, height: 85))
+        logoImage.translatesAutoresizingMaskIntoConstraints = false
+        logoImage.image = UIImage(named: "logoSmall")
+        return logoImage
+    }()
+    
+    var animator: UIDynamicAnimator?
+    
+    typealias SplashDidFinish = () -> Void
+    var splashDidFinish: SplashDidFinish?
+
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureBackground()
-        configureLabels()
+        addViewItems()
+        startAnimation()
     }
     
     private func configureBackground() {
@@ -43,12 +76,7 @@ class SplashViewController: UIViewController {
         return customShapeView
     }
     
-    private func configureLabels() {
-        let ehLabel = UILabel()
-        ehLabel.translatesAutoresizingMaskIntoConstraints = false
-        ehLabel.text = "eh"
-        ehLabel.font = .logo
-        ehLabel.textColor = .white
+    private func addViewItems() {
         
         view.addSubview(ehLabel)
         NSLayoutConstraint.activate([
@@ -56,29 +84,37 @@ class SplashViewController: UIViewController {
             ehLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32)
         ])
         
-        let ohLabel = UILabel()
-        ohLabel.translatesAutoresizingMaskIntoConstraints = false
-        ohLabel.text = "oh"
-        ohLabel.font = .logo
-        ohLabel.textColor = .white
-        
         view.addSubview(ohLabel)
         NSLayoutConstraint.activate([
             ohLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             ohLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32)
         ])
+    }
+    
+    private func startAnimation() {
+        view.addSubview(logoImage)
         
-        let separatorView = UIView(frame: .zero)
-        separatorView.translatesAutoresizingMaskIntoConstraints = false
-        separatorView.backgroundColor = .white
+        animator = UIDynamicAnimator(referenceView: view)
+        let gravityBehavior = UIGravityBehavior(items: [logoImage])
+        animator?.addBehavior(gravityBehavior)
         
-        view.addSubview(separatorView)
-        NSLayoutConstraint.activate([
-            separatorView.topAnchor.constraint(equalTo: ehLabel.bottomAnchor),
-            separatorView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
-            separatorView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
-            separatorView.heightAnchor.constraint(equalToConstant: 8)
+        let collisionBehavior = UICollisionBehavior(items: [logoImage])
+        collisionBehavior.translatesReferenceBoundsIntoBoundary = true
+        
+        let barrier = UIView(frame: CGRect(x: 16, y: view.frame.midY + 50, width: view.frame.width - 32, height: 8))
+        barrier.backgroundColor = .white
+        view.addSubview(barrier)
+                let rightEdge = CGPoint(x: barrier.frame.maxX, y: barrier.frame.maxY)
+                collisionBehavior.addBoundary(withIdentifier: "barrier" as NSCopying, from: barrier.frame.origin, to: rightEdge)
+        
+        animator?.addBehavior(collisionBehavior)
+        animator?.delegate = self
+    }
+}
 
-        ])
+extension SplashViewController: UIDynamicAnimatorDelegate {
+    
+    func dynamicAnimatorDidPause(_ animator: UIDynamicAnimator) {
+        splashDidFinish?()
     }
 }

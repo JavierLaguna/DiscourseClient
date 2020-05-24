@@ -35,6 +35,7 @@ class AppCoordinator: Coordinator {
     
     override func start() {
         let splashVc = SplashViewController()
+        splashVc.splashDidFinish = startApp
 
         window.rootViewController = splashVc
         window.makeKeyAndVisible()
@@ -78,7 +79,6 @@ class AppCoordinator: Coordinator {
         tabBarController.tabBar.items?[3].image = UIImage(named: "ajustes")?.withRenderingMode(.alwaysTemplate)
 
         window.rootViewController = tabBarController
-        window.makeKeyAndVisible()
     }
     
     override func finish() {}
