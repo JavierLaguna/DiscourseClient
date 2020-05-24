@@ -11,7 +11,7 @@ import UIKit
 /// ViewController que representa un listado de users
 class UsersViewController: UIViewController {
     
-    lazy var flowLayout: UICollectionViewFlowLayout = {
+    lazy private var flowLayout: UICollectionViewFlowLayout = {
         let numberOfColumns: Int = 3
         let sectionInset: CGFloat = 24
         let minimumInteritemSpacing: CGFloat = 34
@@ -27,7 +27,7 @@ class UsersViewController: UIViewController {
         return layout
     }()
     
-    lazy var collectionView: UICollectionView = {
+    lazy private var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .white
@@ -37,8 +37,9 @@ class UsersViewController: UIViewController {
         return collectionView
     }()
     
-    lazy var searchBar = UISearchBar()
-    let viewModel: UsersViewModel
+    lazy private var searchBar = UISearchBar()
+    private var refreshControl = UIRefreshControl()
+    private let viewModel: UsersViewModel
     
     init(viewModel: UsersViewModel) {
         self.viewModel = viewModel
@@ -66,6 +67,7 @@ class UsersViewController: UIViewController {
         
         configureNavigationBar()
         configureSearchBar()
+        configureRefreshControl()
         viewModel.viewWasLoaded()
     }
     
@@ -107,9 +109,18 @@ class UsersViewController: UIViewController {
         navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
+    private func configureRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(fetchUsers), for: .valueChanged)
+        collectionView.refreshControl = refreshControl
+    }
+    
     fileprivate func showErrorFetchingUsersAlert() {
         let alertMessage: String = NSLocalizedString("Error fetching users\nPlease try again later", comment: "")
         showAlert(alertMessage)
+    }
+    
+    @objc private func fetchUsers() {
+        viewModel.refreshUsers()
     }
     
     private func searchUsers(by text: String?) {
@@ -144,6 +155,7 @@ extension UsersViewController: UsersViewDelegate {
     
     func usersFetched() {
         collectionView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     func errorFetchingUsers() {

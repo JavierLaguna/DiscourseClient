@@ -11,7 +11,7 @@ import UIKit
 /// ViewController que representa un listado de topics
 class TopicsViewController: UIViewController {
     
-    lazy var tableView: UITableView = {
+    lazy private var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
         table.translatesAutoresizingMaskIntoConstraints = false
         table.dataSource = self
@@ -21,7 +21,7 @@ class TopicsViewController: UIViewController {
         return table
     }()
     
-    lazy var floatingButton: UIImageView = {
+    lazy private var floatingButton: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "icoNew")?.withRenderingMode(.alwaysOriginal))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.isUserInteractionEnabled = true
@@ -30,19 +30,19 @@ class TopicsViewController: UIViewController {
         return imageView
     }()
     
-    let viewModel: TopicsViewModel
-    let defaultFloatingButtonBottomSpace: CGFloat = -12
-    var floatingButtonBottomConstraint: NSLayoutConstraint?
-    var lastVelocityYSign = 0
-    var showFloatingButton: Bool = true {
+    private let viewModel: TopicsViewModel
+    private let defaultFloatingButtonBottomSpace: CGFloat = -12
+    private var floatingButtonBottomConstraint: NSLayoutConstraint?
+    private var lastVelocityYSign = 0
+    private var showFloatingButton: Bool = true {
         didSet {
             if showFloatingButton != oldValue {
                 hideFloatingButton(showFloatingButton)
             }
         }
     }
-    lazy var searchBar = UISearchBar()
-
+    lazy private var searchBar = UISearchBar()
+    private var refreshControl = UIRefreshControl()
 
     init(viewModel: TopicsViewModel) {
         self.viewModel = viewModel
@@ -80,6 +80,7 @@ class TopicsViewController: UIViewController {
         
         configureNavigationBar()
         configureSearchBar()
+        configureRefreshControl()
         viewModel.viewWasLoaded()
     }
     
@@ -103,6 +104,11 @@ class TopicsViewController: UIViewController {
         let textFieldInsideUISearchBar = searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideUISearchBar?.textColor = .blackKC
         searchBar.setImage(UIImage(), for: .search, state: .normal)
+    }
+    
+    private func configureRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(fetchTopics), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
 
     private func configureNavigationBar() {
@@ -138,6 +144,10 @@ class TopicsViewController: UIViewController {
                 self.view.layoutIfNeeded()
             })
         }
+    }
+    
+    @objc private func fetchTopics() {
+        viewModel.refreshTopics()
     }
     
     private func searchTopics(by text: String?) {
@@ -194,6 +204,7 @@ extension TopicsViewController: TopicsViewDelegate {
     
     func topicsFetched() {
         tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     func errorFetchingTopics() {
