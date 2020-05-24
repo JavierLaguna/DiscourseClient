@@ -1,8 +1,12 @@
-# Discourse Client
+# Discourse Client - eh.ho
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-swift.svg)](https://forthebadge.com)
 
 > Discourse Client is a practice of 'concurrencia-red' for KeepCoding Mobile 10
+
+![Splash](/captures/splash.png)
+![Topics](/captures/topics.png)
+![Users](/captures/users.png)
 
 ## Application Structure
 
