@@ -44,13 +44,23 @@ class UserCell: UICollectionViewCell, NibLoadableView, ReusableView {
         
         nameLabel.font = UIFont.cellDetail
     }
+    
+    private func showImage(_ image: UIImage?) {
+        avatarImage.alpha = 0
+        avatarImage.image = image
+        
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.avatarImage.alpha = 1
+        }
+    }
 }
 
 // MARK: UserCellViewModelDelegate
 extension UserCell: UserCellViewModelDelegate {
     
     func userImageFetched() {
-        avatarImage.image = viewModel?.avatarImage
-        setNeedsLayout()
+        guard let image = viewModel?.avatarImage else { return }
+        
+        showImage(image)
     }
 }

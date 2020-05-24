@@ -54,13 +54,23 @@ class TopicCell: UITableViewCell, NibLoadableView, ReusableView {
         posterCountLabel.font = UIFont.cellDetail
         lastPostLabel.font = UIFont.cellDetailBold
     }
+    
+    private func showImage(_ image: UIImage?) {
+        lastPosterImage.alpha = 0
+        lastPosterImage.image = image
+        
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.lastPosterImage.alpha = 1
+        }
+    }
 }
 
 // MARK: TopicCellViewModelDelegate
 extension TopicCell: TopicPostCellViewModelDelegate {
     
     func userImageFetched() {
-        lastPosterImage.image = viewModel?.lastPosterImage
-        setNeedsLayout()
+        guard let image = viewModel?.lastPosterImage else { return }
+        
+        showImage(image)
     }
 }
