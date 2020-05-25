@@ -10,6 +10,7 @@ import UIKit
 
 extension UIColor {
     static let blackKC = UIColor(named: "BlackKC") ?? UIColor.black
+    static let darkGrayKC = UIColor(named: "DarkGrayKC") ?? UIColor.darkGray
     static let grayKC = UIColor(named: "GrayKC") ?? UIColor.gray
     static let orangeKCPumpkin = UIColor(named: "OrangeKCPumpkin") ?? UIColor.orange
     static let orangeKCTangerine = UIColor(named: "OrangeKCTangerine") ?? UIColor.yellow

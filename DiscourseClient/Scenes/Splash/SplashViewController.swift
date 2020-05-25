@@ -71,7 +71,7 @@ class SplashViewController: UIViewController {
         
         customShapeLayer.path = bezierPath.cgPath
         
-        customShapeLayer.fillColor = UIColor.grayKC.cgColor
+        customShapeLayer.fillColor = UIColor.darkGrayKC.cgColor
         
         return customShapeView
     }
