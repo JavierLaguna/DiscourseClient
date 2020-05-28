@@ -24,6 +24,7 @@ protocol TopicsViewDelegate: class {
 class TopicsViewModel {
     weak var coordinatorDelegate: TopicsCoordinatorDelegate?
     weak var viewDelegate: TopicsViewDelegate?
+    var nextPage: String?
     let topicsDataManager: TopicsDataManager
     var topicViewModels: [TopicCellViewModel] = []
     var searchText: String? {
@@ -50,22 +51,33 @@ class TopicsViewModel {
     }
     
     func viewWasLoaded() {
-        fetchAllTopics()
+        refreshTopics()
     }
     
     func refreshTopics() {
+        nextPage = nil
+        topicViewModels = [TopicPinnedCellViewModel()]
+        
         fetchAllTopics()
     }
     
+    func fetchMoreTopics() {
+        fetchAllTopics()
+        nextPage = nil
+    }
+    
     private func fetchAllTopics() {
-        topicsDataManager.fetchAllTopics { [weak self] result in
+        topicsDataManager.fetchAllTopics(nextPage: nextPage) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
             case .success(let topicsResp):
-                guard let topics = topicsResp?.topics, let users = topicsResp?.users else { return }
+                self.nextPage = topicsResp?.nextPage
                 
-                self.topicViewModels = topics.compactMap { topic in
+                guard let topics = topicsResp?.topics,
+                    let users = topicsResp?.users else { return }
+                
+                let newTopics: [TopicCellViewModel] = topics.compactMap { topic in
                     guard let lastPoster = users.first(where: {$0.username == topic.lastPosterUsername}) else {
                         return nil
                     }
@@ -73,8 +85,7 @@ class TopicsViewModel {
                     return TopicPostCellViewModel(topic: topic, lastPoster: lastPoster)
                 }
                 
-                self.topicViewModels.insert(TopicPinnedCellViewModel(), at: 0)
-                
+                self.topicViewModels.append(contentsOf: newTopics)
                 self.viewDelegate?.topicsFetched()
                 
             case .failure(let error):

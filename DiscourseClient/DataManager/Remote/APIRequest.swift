@@ -29,15 +29,18 @@ protocol APIRequest {
 // Default implementation of the protocol
 extension APIRequest {
     
-    var baseURL: URL {
-        guard let baseURL = URL(string: apiURL) else {
-            fatalError("URL not valid")
-        }
-        return baseURL
+    var baseURL: URL? {
+        return URL(string: apiURL)
     }
     
     func requestWithBaseUrl() -> URLRequest {
-        let url = baseURL.appendingPathComponent(path)
+        
+        // FIX for pagination endpoint
+        //        let url = baseURL.appendingPathComponent(path)
+        let buildUrl = baseURL.flatMap { URL(string: $0.absoluteString + path) }
+        guard let url = buildUrl else {
+            fatalError("URL not valid")
+        }
         
         // Segundo, si el objeto que lo implementa añade parametros, construimos la url con parametros
         guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {

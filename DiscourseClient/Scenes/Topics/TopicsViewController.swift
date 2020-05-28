@@ -30,6 +30,7 @@ class TopicsViewController: UIViewController {
         return imageView
     }()
     
+    private let fetchNextPageOffset = 5
     private let viewModel: TopicsViewModel
     private let defaultFloatingButtonBottomSpace: CGFloat = -12
     private var floatingButtonBottomConstraint: NSLayoutConstraint?
@@ -166,6 +167,11 @@ extension TopicsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row + fetchNextPageOffset >= viewModel.numberOfRows(in: indexPath.section),
+        viewModel.nextPage != nil {
+            viewModel.fetchMoreTopics()
+        }
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: TopicCell.defaultReuseIdentifier, for: indexPath) as? TopicCell,
             let cellViewModel = viewModel.viewModel(at: indexPath) as? TopicPostCellViewModel {
             cell.viewModel = cellViewModel

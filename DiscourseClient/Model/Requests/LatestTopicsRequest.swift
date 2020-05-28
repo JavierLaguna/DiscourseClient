@@ -13,12 +13,22 @@ struct LatestTopicsRequest: APIRequest {
     
     typealias Response = LatestTopicsResponse
     
+    let nextPage: String?
+    
+    init(nextPage: String?) {
+        self.nextPage = nextPage
+    }
+    
     var method: Method {
         return .GET
     }
     
     var path: String {
-        return "/latest.json"
+        guard let nextPage = nextPage else {
+            return "/latest.json"
+        }
+        
+        return nextPage
     }
     
     var parameters: [String : String] {
@@ -32,5 +42,5 @@ struct LatestTopicsRequest: APIRequest {
     var headers: [String : String] {
         return [:]
     }
-
+    
 }

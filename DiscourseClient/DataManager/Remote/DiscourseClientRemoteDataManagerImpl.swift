@@ -17,8 +17,8 @@ class DiscourseClientRemoteDataManagerImpl: DiscourseClientRemoteDataManager {
         self.session = session
     }
     
-    func fetchAllTopics(completion: @escaping (Result<LatestTopicsResponse?, Error>) -> ()) {
-        let request = LatestTopicsRequest()
+    func fetchAllTopics(nextPage: String?, completion: @escaping (Result<LatestTopicsResponse?, Error>) -> ()) {
+        let request = LatestTopicsRequest(nextPage: nextPage)
         session.send(request: request) { result in
             completion(result)
         }
