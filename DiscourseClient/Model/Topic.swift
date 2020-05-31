@@ -31,10 +31,11 @@ struct Topic: Codable {
     let lastPosterUsername: String?
     let categoryId: Int
     let pinnedGlobally: Bool
+    let posters: [Poster]?
     
     enum CodingKeys: String, CodingKey {
         
-        case id, title, slug, pinned, visible, closed, archived, views, archetype
+        case id, title, slug, pinned, visible, closed, archived, views, archetype, posters
         case fancyTitle = "fancy_title"
         case postsCount = "posts_count"
         case replyCount = "reply_count"
@@ -46,5 +47,28 @@ struct Topic: Codable {
         case categoryId = "category_id"
         case pinnedGlobally = "pinned_globally"
     }
+        
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(title, forKey: .title)
+    }
+}
+
+// MARK: Poster
+extension Topic {
     
+    struct Poster: Decodable {
+        let extras: String?
+        let description: String?
+        let userId: Int
+        let primaryGroupId: Int?
+        
+        enum CodingKeys: String, CodingKey {
+            
+            case extras, description
+            case userId = "user_id"
+            case primaryGroupId = "primary_group_id"
+        }
+    }
 }

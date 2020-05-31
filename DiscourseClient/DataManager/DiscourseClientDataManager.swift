@@ -22,8 +22,8 @@ class DiscourseClientDataManager {
 }
 
 extension DiscourseClientDataManager: TopicsDataManager {
-    func fetchAllTopics(completion: @escaping (Result<LatestTopicsResponse?, Error>) -> ()) {
-        remoteDataManager.fetchAllTopics(completion: completion)
+    func fetchAllTopics(nextPage: String?, completion: @escaping (Result<LatestTopicsResponse?, Error>) -> ()) {
+        remoteDataManager.fetchAllTopics(nextPage: nextPage, completion: completion)
     }
 }
 
